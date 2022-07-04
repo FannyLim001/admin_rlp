@@ -8,7 +8,7 @@
     <meta name="description" content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
     <meta name="keywords" content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
-    <title>Dashboard - Chameleon Admin - Modern Bootstrap 4 WebApp & Dashboard HTML Template + UI Kit</title>
+    <title><?=$title?></title>
     <link rel="apple-touch-icon" href="<?= base_url() ?>template/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>template/theme-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
@@ -29,8 +29,9 @@
     <!-- END Custom CSS-->
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
 
+    <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
+    <!-- <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns"> -->
     <!-- fixed-top-->
     <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
         <div class="navbar-wrapper">
@@ -102,7 +103,7 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item <?php if($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') { echo 'active'; } ?>"><a href="<?=site_url()?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                <li class="nav-item <?php if($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') { echo 'active'; } ?>"><a href="<?=site_url('admin')?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
                 <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/barang') { echo 'active'; } ?>"><a href="<?=site_url('admin/barang')?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Barang</span></a>
                 </li>

@@ -20,36 +20,41 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('admin/dashboard');
+		$data['title'] = 'Dashboard';
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/dashboard', $data);
 		$this->load->view('layout/footer');
 	}
 
 	public function barang()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('');
+		$data['title'] = 'Barang';
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/barang', $data);
 		$this->load->view('layout/footer');
 	}
 
 	public function karyawan()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('');
+		$data['title'] = 'Karyawan';
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/karyawan', $data);
 		$this->load->view('layout/footer');
 	}
 
 	public function supplier()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('');
+		$data['title'] = 'Supplier';
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/supplier', $data);
 		$this->load->view('layout/footer');
 	}
 
 	public function transaksi()
 	{
-		$this->load->view('layout/header');
-		$this->load->view('');
+		$data['title'] = 'Transaksi';
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/transaksi', $data);
 		$this->load->view('layout/footer');
 	}
 }
