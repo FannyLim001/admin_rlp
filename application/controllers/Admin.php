@@ -30,7 +30,7 @@ class Admin extends CI_Controller {
 	{
 		$data['title'] = 'Barang';
 		$this->load->view('layout/header', $data);
-		$this->load->view('admin/barang', $data);
+		$this->load->view('admin/barang/barang', $data);
 		$this->load->view('layout/footer');
 	}
 

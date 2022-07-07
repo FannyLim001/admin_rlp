@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tabel Karyawan &nbsp;<button type="button" class="btn btn-primary"><i class="ft-plus-square"></i></button></h4>
+                            <h4 class="card-title">Tabel Barang &nbsp;<a href="<?= site_url('Barang/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -42,9 +42,9 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Karyawan</th>
-                                                <th>Email</th>
-                                                <th>Password</th>
+                                                <th>Nama Barang</th>
+                                                <th>Ketersediaan Barang</th>
+                                                <th>Gambar Barang</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
