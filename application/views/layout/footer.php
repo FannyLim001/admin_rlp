@@ -15,6 +15,7 @@
         </div>
     </footer>
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <!-- BEGIN VENDOR JS-->
     <script src="<?=base_url()?>template/theme-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->

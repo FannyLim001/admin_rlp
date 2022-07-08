@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class BarangModel extends CI_Model
+class KaryawanModel extends CI_Model
 {
-    public $table = 'barang';
+    public $table = 'user';
 
     public function __construct()
     {

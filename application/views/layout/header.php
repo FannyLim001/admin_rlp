@@ -11,7 +11,8 @@
     <title><?=$title?></title>
     <link rel="apple-touch-icon" href="<?= base_url() ?>template/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>template/theme-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/vendors.css">
@@ -104,9 +105,9 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="nav-item <?php if($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') { echo 'active'; } ?>"><a href="<?=site_url('admin')?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/barang') { echo 'active'; } ?>"><a href="<?=site_url('admin/barang')?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Barang</span></a>
+                <li class=" nav-item <?php if($this->uri->uri_string() == 'barang/index' || $this->uri->uri_string() == 'barang/add' || $this->uri->uri_string() == 'barang/edit/') { echo 'active'; } ?>"><a href="<?=site_url('barang/index')?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Barang</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/karyawan') { echo 'active'; } ?>"><a href="<?=site_url('admin/karyawan')?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
+                <li class=" nav-item <?php if($this->uri->uri_string() == 'karyawan/index') { echo 'active'; } ?>"><a href="<?=site_url('karyawan/index')?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
                 <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/supplier') { echo 'active'; } ?>"><a href="<?=site_url('admin/supplier')?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>

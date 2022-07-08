@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tabel Barang &nbsp;<a href="<?= site_url('Barang/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
+                            <h4 class="card-title">Tabel Barang &nbsp;<a href="<?= site_url('barang/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -49,22 +49,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php
+                                            $i = 1;
+                                            foreach ($barang as $b) {
+                                        ?>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td><button type="button" class="btn btn-info"><i class="ft-edit"></i></button>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger"><i class="ft-trash-2"></i></button>
+                                                <th scope="row"><?= $i ?></th>
+                                                <td><?= $b['nama_barang'] ?></td>
+                                                <td><?= $b['ketersediaan_barang'] ?></td>
+                                                <td><?= $b['gambar_barang'] ?></td>
+                                                <td><a class="btn btn-info" href="<?= site_url('barang/edit/') . $b['id_barang']; ?>"><i class="ft-edit"></i></a>&nbsp;&nbsp;
+                                                <a class="btn btn-danger" href="<?= site_url('barang/delete/'). $b['id_barang']; ?>"><i class="ft-trash-2"></i></a>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td><button type="button" class="btn btn-info"><i class="ft-edit"></i></button>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger"><i class="ft-trash-2"></i></button>
-                                            </tr>
+                                            <?php $i++;
+                                        } ?>
                                         </tbody>
                                     </table>
                                 </div>

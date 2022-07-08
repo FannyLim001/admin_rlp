@@ -26,22 +26,6 @@ class Admin extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
-	public function barang()
-	{
-		$data['title'] = 'Barang';
-		$this->load->view('layout/header', $data);
-		$this->load->view('admin/barang/barang', $data);
-		$this->load->view('layout/footer');
-	}
-
-	public function karyawan()
-	{
-		$data['title'] = 'Karyawan';
-		$this->load->view('layout/header', $data);
-		$this->load->view('admin/karyawan', $data);
-		$this->load->view('layout/footer');
-	}
-
 	public function supplier()
 	{
 		$data['title'] = 'Supplier';

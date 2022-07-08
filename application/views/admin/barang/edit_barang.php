@@ -3,7 +3,7 @@
         <div class="content-wrapper-before"></div>
         <div class="content-header row">
           <div class="content-header-left col-md-4 col-12 mb-2">
-            <h3 class="content-header-title">Tambah Barang</h3>
+            <h3 class="content-header-title">Edit Barang</h3>
           </div>
           <div class="content-header-right col-md-8 col-12">
             <div class="breadcrumbs-top float-md-right">
@@ -28,18 +28,19 @@
 			<div class="card">
 				<div class="card-content">
 					<div class="card-body">
-						<h4 class="card-title">Form Tambah Barang</h4>
+						<h4 class="card-title">Form Edit Barang</h4>
 					</div>
 					<div class="card-body">
-                    <form action="<?= base_url('barang/upload'); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url('barang/update'); ?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id_barang" class="form-control" value="<?= $barang['id_barang'] ?>">
 							<div class="form-body">
 								<div class="form-group">
 									<label for="donationinput1" class="sr-only">Nama Barang</label>
-									<input type="text" id="donationinput1" class="form-control" placeholder="Nama Barang" name="nama_barang">
+									<input type="text" id="donationinput1" class="form-control" placeholder="Nama Barang" name="nama_barang" value="<?= $barang['nama_barang']; ?>">
 								</div>
 								<div class="form-group">
 									<label for="donationinput2" class="sr-only">Ketersediaan Barang</label>
-									<input type="text" id="donationinput2" class="form-control" placeholder="Ketersediaan Barang" name="ketersediaan_barang">
+									<input type="text" id="donationinput2" class="form-control" placeholder="Ketersediaan Barang" name="ketersediaan_barang" value="<?= $barang['ketersediaan_barang']; ?>">
 								</div>
 								<div class="form-group">
 									<label for="donationinput3" class="sr-only">Gambar Barang</label>
