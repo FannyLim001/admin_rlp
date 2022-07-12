@@ -12,7 +12,7 @@ class Karyawan extends CI_Controller {
     public function index()
 	{
 		$data['title'] = 'Karyawan';
-        $data['barang'] = $this->KaryawanModel->get();
+        $data['karyawan'] = $this->KaryawanModel->get();
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/karyawan/karyawan', $data);
 		$this->load->view('layout/footer');
@@ -27,7 +27,7 @@ class Karyawan extends CI_Controller {
 
     public function edit($id_karyawan){
         $data['title'] = 'Edit Karyawan';
-        $data['barang'] = $this->Karyawan->getById($id_karyawan);
+        $data['karyawan'] = $this->KaryawanModel->getById($id_karyawan);
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/karyawan/edit_karyawan', $data);
 		$this->load->view('layout/footer');

@@ -8,15 +8,22 @@
     <meta name="description" content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
     <meta name="keywords" content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
-    <title><?=$title?></title>
+    <title><?= $title ?></title>
     <link rel="apple-touch-icon" href="<?= base_url() ?>template/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>template/theme-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+
+    <!-- Begin DataTables -->
+    <script src="<?= base_url() ?>template/theme-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js"></script>
+    
+    
+    
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/vendors.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/vendors/css/charts/chartist.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/vendors/css/tables/datatable/datatables.min.css">
     <!-- END VENDOR CSS-->
     <!-- BEGIN CHAMELEON  CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/app-lite.css">
@@ -31,7 +38,7 @@
 </head>
 
 
-    <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
     <!-- fixed-top-->
     <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
         <div class="navbar-wrapper">
@@ -65,7 +72,13 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="la la-archive"> </i></a>
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                                <i class="la la-archive" id="notification-navbar-link"></i>
+                                <!-- <i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i> -->
+                                <span class="badge badge-pill badge-sm badge-danger badge-up ">69</span>
+                                <!-- <span class="badge badge badge-info badge-pill float-right mr-2">1</span> -->
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right"><a class="dropdown-item" href="#"><i class="ft-book"></i>
                                         Read Mail</a><a class="dropdown-item" href="#"><i class="ft-bookmark"></i> Read
@@ -103,15 +116,25 @@
         </div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item <?php if($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') { echo 'active'; } ?>"><a href="<?=site_url('admin')?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') {
+                                        echo 'active';
+                                    } ?>"><a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'barang/index' || $this->uri->uri_string() == 'barang/add' || $this->uri->uri_string() == 'barang/edit/') { echo 'active'; } ?>"><a href="<?=site_url('barang/index')?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Barang</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'bahan/index' || $this->uri->uri_string() == 'bahan/add' || $this->uri->uri_string() == 'bahan/edit/') {
+                                            echo 'active';
+                                        } ?>"><a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'karyawan/index') { echo 'active'; } ?>"><a href="<?=site_url('karyawan/index')?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'karyawan/index') {
+                                            echo 'active';
+                                        } ?>"><a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/supplier') { echo 'active'; } ?>"><a href="<?=site_url('admin/supplier')?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/supplier') {
+                                            echo 'active';
+                                        } ?>"><a href="<?= site_url('admin/supplier') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
-                <li class=" nav-item <?php if($this->uri->uri_string() == 'admin/transaksi') { echo 'active'; } ?>"><a href="<?=site_url('admin/transaksi')?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') {
+                                            echo 'active';
+                                        } ?>"><a href="<?= site_url('admin/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
                 </li>
             </ul>
         </div>

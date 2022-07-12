@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tabel Barang &nbsp;<a href="<?= site_url('barang/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
+                            <h4 class="card-title">Tabel Bahan &nbsp;<a href="<?= site_url('bahan/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -38,28 +38,50 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
+                                    <table class="table" id="tableId">
+                                        <thead> 
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Barang</th>
-                                                <th>Ketersediaan Barang</th>
-                                                <th>Gambar Barang</th>
+                                                <th>Nama Bahan</th>
+                                                <th>Stok (Kg)</th>
+                                                <th>Ketersediaan Bahan</th>
+                                                <th>Gambar Bahan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?php
                                             $i = 1;
-                                            foreach ($barang as $b) {
+                                            foreach ($bahan as $b) {
                                         ?>
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
-                                                <td><?= $b['nama_barang'] ?></td>
-                                                <td><?= $b['ketersediaan_barang'] ?></td>
-                                                <td><?= $b['gambar_barang'] ?></td>
-                                                <td><a class="btn btn-info" href="<?= site_url('barang/edit/') . $b['id_barang']; ?>"><i class="ft-edit"></i></a>&nbsp;&nbsp;
-                                                <a class="btn btn-danger" href="<?= site_url('barang/delete/'). $b['id_barang']; ?>"><i class="ft-trash-2"></i></a>
+                                                <td><?= $b['nama_bahan'] ?></td>
+                                                <td><?= $b['stok_bahan'] ?></td>
+                                                <td>
+                                                    <?php if($b['stok_bahan'] > 20)
+                                                    {?>
+                                                        <!-- Stok ada -->
+                                                        <button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1">Stok Ada</button>
+                                                    <?php 
+                                                    }
+                                                    else if($b['stok_bahan'] > 1)
+                                                    {?>
+                                                        <!-- Stok Sisa Sedikit -->
+                                                        <button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1">Stok Sisa Sedikit</button>
+                                                    <?php 
+                                                    }
+                                                    else 
+                                                    {?>
+                                                        <!-- Habis -->
+                                                        <button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1">Habis</button>
+                                                    <?php 
+                                                    }?>
+                                                </td>
+                                                <td><img src="<?= base_url('assets/img/bahan/') . $b['gambar_bahan']; ?>" alt="pic" width="100px" height="70px"></td>
+                                                <td><a class="btn btn-primary" href="<?= site_url('bahan/cart/') . $b['id_bahan']; ?>"><i class="ft-plus"></i></a>&nbsp;&nbsp;
+                                                    <a class="btn btn-info" href="<?= site_url('bahan/edit/') . $b['id_bahan']; ?>"><i class="ft-edit"></i></a>&nbsp;&nbsp;
+                                                <a class="btn btn-danger" href="<?= site_url('bahan/delete/'). $b['id_bahan']; ?>"><i class="ft-trash-2"></i></a>
                                             </tr>
                                             <?php $i++;
                                         } ?>

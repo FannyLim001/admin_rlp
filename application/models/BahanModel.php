@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class KaryawanModel extends CI_Model
+class BahanModel extends CI_Model
 {
-    public $table = 'user';
+    public $table = 'bahan';
 
     public function __construct()
     {
@@ -12,9 +12,7 @@ class KaryawanModel extends CI_Model
 
     public function get()
     {
-        $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where('role','Karyawan');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -40,7 +38,7 @@ class KaryawanModel extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where('id_user', $id);
+        $this->db->where('id_bahan', $id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
