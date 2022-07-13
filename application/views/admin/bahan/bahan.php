@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Tabel Bahan &nbsp;<a href="<?= site_url('bahan/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
+                        <div class="card-header">btn btn-primary
+                            <h4 class="card-title">Tabel Bahan &nbsp;<a href="<?= site_url('bahan/add'); ?>" class=""><i class="ft-plus-square"></i></a></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">

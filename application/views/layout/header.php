@@ -17,9 +17,9 @@
 
     <!-- Begin DataTables -->
     <script src="<?= base_url() ?>template/theme-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js"></script>
-    
-    
-    
+
+
+
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/vendors.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/vendors/css/charts/chartist.css">
@@ -76,14 +76,25 @@
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="la la-archive" id="notification-navbar-link"></i>
                                 <!-- <i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i> -->
-                                <span class="badge badge-pill badge-sm badge-danger badge-up ">69</span>
+                                <?php if ($cartCount > 1) { ?>
+                                    <span class="badge badge-pill badge-sm badge-danger badge-up ">
+                                        <?= $cartCount ?>
+                                    </span>
+                                <?php } ?>
                                 <!-- <span class="badge badge badge-info badge-pill float-right mr-2">1</span> -->
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <div class="arrow_box_right"><a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                        Read Mail</a><a class="dropdown-item" href="#"><i class="ft-bookmark"></i> Read
-                                        Later</a><a class="dropdown-item" href="#"><i class="ft-check-square"></i> Mark
-                                        all Read </a></div>
+                                <div class="arrow_box_right">
+                                    <a class="dropdown-item" href="#"><i class="ft-book"></i>
+                                        cart content feach
+                                    </a>
+                                    <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
+                                        cart content
+                                    </a>
+                                    <a class="dropdown-item" href="#"><i class="ft-check-square"></i> 
+                                        Lihat semua
+                                    </a>
+                                </div>
                             </div>
                         </li>
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">

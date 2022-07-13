@@ -7,11 +7,14 @@ class Bahan extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('BahanModel');
+        $this->load->model('KeranjangModel', 'cart');
     }
 
     public function index()
 	{
 		$data['title'] = 'Bahan';
+        $data['cartCount'] = $this->cart->count();
+
         $data['bahan'] = $this->BahanModel->get();
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/bahan/bahan', $data);
@@ -20,6 +23,8 @@ class Bahan extends CI_Controller {
 
     public function add(){
         $data['title'] = 'Tambah Bahan';
+        $data['cartCount'] = $this->cart->count();
+        
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/bahan/add_bahan', $data);
 		$this->load->view('layout/footer');
@@ -52,7 +57,9 @@ class Bahan extends CI_Controller {
     public function edit($id_bahan){
         $data['title'] = 'Edit Bahan';
         $data['bahan'] = $this->BahanModel->getById($id_bahan);
-		$this->load->view('layout/header', $data);
+		$data['cartCount'] = $this->cart->count();
+        
+        $this->load->view('layout/header', $data);
 		$this->load->view('admin/bahan/edit_bahan', $data);
 		$this->load->view('layout/footer');
     }
