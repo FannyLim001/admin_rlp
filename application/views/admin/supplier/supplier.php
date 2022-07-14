@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tabel <?= $title ?> &nbsp;<a href="<?= site_url('karyawan/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a><?= $this->session->flashdata('message'); ?></h4>
+                            <h4 class="card-title">Tabel <?= $title ?> &nbsp;<a href="<?= site_url('supplier/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a><?= $this->session->flashdata('message'); ?></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -42,22 +42,24 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Karyawan</th>
-                                                <th>Email</th>
+                                                <th>Nama Supplier</th>
+                                                <th>Alamat</th>
+                                                <th>Nomor Telepon</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <?php
                                             $i = 1;
-                                            foreach ($karyawan as $k) {
+                                            foreach ($supplier as $s) {
                                         ?>
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
-                                                <td><?= $k['nama'] ?></td>
-                                                <td><?= $k['email'] ?></td>
-                                                <td><a href="<?= site_url('karyawan/edit/') . $k['id_user']; ?>" class="btn btn-info"><i class="ft-edit"></i></a>&nbsp;&nbsp;
-                                                <a href="<?= site_url('karyawan/delete/') . $k['id_user']; ?>" class="btn btn-danger"><i class="ft-trash-2"></i></a>
+                                                <td><?= $s['nama_supplier'] ?></td>
+                                                <td><?= $s['alamat_supplier'] ?></td>
+                                                <td><?= $s['no_telp'] ?></td>
+                                                <td><a href="<?= site_url('supplier/edit/') . $s['id_supplier']; ?>" class="btn btn-info"><i class="ft-edit"></i></a>&nbsp;&nbsp;
+                                                <a href="<?= site_url('supplier/delete/') . $s['id_supplier']; ?>" class="btn btn-danger"><i class="ft-trash-2"></i></a>
                                             </tr>
                                             <?php $i++;
                                         } ?>

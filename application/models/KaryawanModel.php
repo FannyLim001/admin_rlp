@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class KaryawanModel extends CI_Model
 {
-    public $table = 'user';
+    private $table = 'user';
+    private $id = 'id_user';
 
     public function __construct()
     {
@@ -22,6 +23,7 @@ class KaryawanModel extends CI_Model
     public function getById($id)
     {
         $this->db->from($this->table);
+        $this->db->where($this->id, $id);
         $query = $this->db->get();
         return $query->row_array();
     }

@@ -1,34 +1,23 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends CI_Controller
+{
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
 	public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('KeranjangModel', 'cart');
+	{
+		parent::__construct();
+		$this->load->model('KeranjangModel', 'cart');
 		$this->load->model('BahanModel');
-    }
-	
-	 public function index()
+		$this->load->model('KaryawanModel');
+		$this->load->model('SupplierModel');
+	}
+
+	public function index()
 	{
 		$data['title'] = 'Dashboard';
 		$data['cartCount'] = $this->cart->count();
+		$data['keranjang'] = $this->cart->get();
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/dashboard', $data);
@@ -39,6 +28,7 @@ class Admin extends CI_Controller {
 	{
 		$data['title'] = 'Supplier';
 		$data['cartCount'] = $this->cart->count();
+		$data['keranjang'] = $this->cart->get();
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/supplier', $data);
@@ -49,7 +39,8 @@ class Admin extends CI_Controller {
 	{
 		$data['title'] = 'Transaksi';
 		$data['cartCount'] = $this->cart->count();
-		
+		$data['keranjang'] = $this->cart->get();
+
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/transaksi', $data);
 		$this->load->view('layout/footer');
@@ -59,16 +50,18 @@ class Admin extends CI_Controller {
 	{
 		$data['title'] = 'Keranjang';
 		$data['keranjang'] = $this->cart->get();
+		$data['cartCount'] = $this->cart->count();
 		$data['bahan'] = $this->BahanModel->getById($id);
 
-		if($this->form_validation->run() == false)
-		{
+		$this->form_validation->set_rules('jumlah', 'Jumlah', 'required', [
+			'required' => 'Jumlah Wajib di isi'
+		]);
+
+		if ($this->form_validation->run() == false) {
 			$this->load->view('layout/header', $data);
 			$this->load->view('admin/keranjang', $data);
 			$this->load->view('layout/footer');
-		}
-		else
-		{
+		} else {
 			$data = [
 				'id_bahan' => $this->input->post('id'),
 				'jumlah' => $this->input->post('jumlah'),
@@ -76,7 +69,29 @@ class Admin extends CI_Controller {
 			];
 			$this->cart->insert($data);
 			$this->session->set_flashdata('message');
-			redirect('admin/detail_keranjang');
+			redirect('Admin/detail');
 		}
 	}
+
+	public function detail()
+	{
+		$data['title'] = 'List Keranjang';
+		$data['keranjang'] = $this->cart->get();
+		$data['karyawan'] = $this->KaryawanModel->get();
+		$data['supplier'] = $this->SupplierModel->get();
+		$data['cartCount'] = $this->cart->count();
+		$data['bahan'] = $this->BahanModel->get();
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/detail_keranjang', $data);
+		$this->load->view('layout/footer');
+	}
+
+	public function delkeranjang($id)
+    {
+        $this->cart->delete($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Data berhasil dihapus dari keranjang!</div>');
+        redirect('Admin/detail');
+    }
 }

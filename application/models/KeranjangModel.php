@@ -15,7 +15,7 @@ class KeranjangModel extends CI_Model
     {
         $this->db->select('keranjang.*, b.nama_bahan as nama_bahan');
         $this->db->from('keranjang');
-        $this->db->join('bahan b', 'b.id_bahan = keranjang.id');
+        $this->db->join('bahan b', 'b.id_bahan = keranjang.id_bahan');
         $query = $this->db->get();
         return $query->result_array();
     }

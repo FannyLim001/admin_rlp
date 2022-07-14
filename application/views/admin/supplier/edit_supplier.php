@@ -29,24 +29,26 @@
 						<div class="card">
 							<div class="card-content">
 								<div class="card-body">
-									<h4 class="card-title">Form Tambah Bahan</h4>
+									<h4 class="card-title">Form <?= $title ?></h4>
 								</div>
 								<div class="card-body">
 									<form action="" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="id_supplier" class="form-control" value="<?= $supplier['id_supplier'] ?>">
 										<div class="form-body">
 											<div class="form-group">
-												<label for="donationinput1" class="sr-only">Nama Bahan</label>
-												<input type="text" id="donationinput1" value="<?= set_value('nama_bahan'); ?>" class="form-control" placeholder="Nama Bahan" name="nama_bahan">
-												<?= form_error('nama_bahan', '<small class="text-danger pl-3">', '</small>'); ?>
+												<label for="donationinput1" class="sr-only">Nama Supplier</label>
+												<input type="text" id="donationinput1" value="<?= $supplier['nama_supplier'] ?>" class="form-control" placeholder="Nama Supplier" name="nama_supplier">
+												<?= form_error('nama_supplier', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group">
-												<label for="donationinput2" class="sr-only">Stok (Kg)</label>
-												<input type="number" id="donationinput2" value="<?= set_value('stok_bahan'); ?>" class="form-control" placeholder="Stok (dalam satuan Kg)" name="stok_bahan">
-												<?= form_error('stok_bahan', '<small class="text-danger pl-3">', '</small>'); ?>
+												<label for="donationinput2" class="sr-only">Alamat Supplier</label>
+												<input type="text" id="donationinput2" value="<?= $supplier['alamat_supplier'] ?>" class="form-control" placeholder="Alamat Supplier" name="alamat_supplier">
+												<?= form_error('alamat_supplier', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group">
-												<label for="donationinput3" class="sr-only">Gambar Bahan</label>
-												<input type="file" id="donationinput3" class="form-control" placeholder="Gambar Bahan" name="gambar_bahan">
+												<label for="donationinput3" class="sr-only">Nomor Telepon</label>
+												<input type="text" id="donationinput3" value="<?= $supplier['no_telp'] ?>" class="form-control" placeholder="Nomor Telepon" name="no_telp">
+												<?= form_error('no_telp', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 										</div>
 										<div class="form-actions center">

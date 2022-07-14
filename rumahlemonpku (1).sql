@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 11:21 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Waktu pembuatan: 14 Jul 2022 pada 11.28
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bahan`
+-- Struktur dari tabel `bahan`
 --
 
 CREATE TABLE `bahan` (
@@ -35,16 +35,19 @@ CREATE TABLE `bahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bahan`
+-- Dumping data untuk tabel `bahan`
 --
 
 INSERT INTO `bahan` (`id_bahan`, `nama_bahan`, `stok_bahan`, `gambar_bahan`) VALUES
-(4, 'Lemon', 10, 'lemon.jpg');
+(5, 'Gulakusadasdasa', 40, 'gulaku.png'),
+(6, 'Lemon', 1, 'lemon_segar.jpeg'),
+(7, 'Sabun', 20, 'Face_Scrub.jpg'),
+(8, 'adasdasda', 123, 'Body_Scrub_Lemon.jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_transaksi`
+-- Struktur dari tabel `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -57,7 +60,7 @@ CREATE TABLE `detail_transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang`
+-- Struktur dari tabel `keranjang`
 --
 
 CREATE TABLE `keranjang` (
@@ -67,10 +70,17 @@ CREATE TABLE `keranjang` (
   `tanggal` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `keranjang`
+--
+
+INSERT INTO `keranjang` (`id_keranjang`, `id_bahan`, `jumlah`, `tanggal`) VALUES
+(6, 5, 99, '14/07/2022');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supplier`
+-- Struktur dari tabel `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -80,10 +90,17 @@ CREATE TABLE `supplier` (
   `no_telp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `supplier`
+--
+
+INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `no_telp`) VALUES
+(2, 'Harlem', 'Jl. Sutomo', '0916262');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -99,7 +116,7 @@ CREATE TABLE `transaksi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -111,45 +128,45 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `role`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin', 'Admin'),
-(2, 'budi', 'budi@gmail.com', 'budi123', 'Karyawan');
+(1, 'Admin', 'admin@gmail.com', 'admin', 'Admin'),
+(2, 'Budianto', 'budi@gmail.com', 'budi123', 'Karyawan');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bahan`
+-- Indeks untuk tabel `bahan`
 --
 ALTER TABLE `bahan`
   ADD PRIMARY KEY (`id_bahan`);
 
 --
--- Indexes for table `detail_transaksi`
+-- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail_transaksi`),
   ADD KEY `fk_detail_transaksi_bahan` (`id_bahan`);
 
 --
--- Indexes for table `keranjang`
+-- Indeks untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD PRIMARY KEY (`id_keranjang`),
   ADD KEY `fk_keranjang_bahan` (`id_bahan`);
 
 --
--- Indexes for table `supplier`
+-- Indeks untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
@@ -157,69 +174,69 @@ ALTER TABLE `transaksi`
   ADD KEY `fk_supplier_transaksi` (`id_supplier`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `bahan`
+-- AUTO_INCREMENT untuk tabel `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `keranjang`
+-- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `supplier`
+-- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detail_transaksi`
+-- Ketidakleluasaan untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD CONSTRAINT `fk_detail_transaksi_bahan` FOREIGN KEY (`id_bahan`) REFERENCES `bahan` (`id_bahan`);
 
 --
--- Constraints for table `keranjang`
+-- Ketidakleluasaan untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD CONSTRAINT `fk_keranjang_bahan` FOREIGN KEY (`id_bahan`) REFERENCES `bahan` (`id_bahan`);
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `fk_karyawan_transaksi` FOREIGN KEY (`id_karyawan`) REFERENCES `user` (`id_user`),

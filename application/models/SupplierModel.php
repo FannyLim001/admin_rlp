@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class BahanModel extends CI_Model
+class SupplierModel extends CI_Model
 {
-    private $table = 'bahan';
-    private $id = 'id_bahan';
+    private $table = 'supplier';
+    private $id = 'id_supplier';
 
     public function __construct()
     {
@@ -40,7 +40,7 @@ class BahanModel extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where('id_bahan', $id);
+        $this->db->where('id_supplier', $id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }

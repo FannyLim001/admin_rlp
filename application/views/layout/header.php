@@ -76,7 +76,7 @@
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="la la-archive" id="notification-navbar-link"></i>
                                 <!-- <i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i> -->
-                                <?php if ($cartCount > 1) { ?>
+                                <?php if ($cartCount > 0) { ?>
                                     <span class="badge badge-pill badge-sm badge-danger badge-up ">
                                         <?= $cartCount ?>
                                     </span>
@@ -85,13 +85,18 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right">
-                                    <a class="dropdown-item" href="#"><i class="ft-book"></i>
+                                    <?php foreach($keranjang as $cart):?>
+                                        <a class="dropdown-item" href="#"><i class="ft-book"></i>
+                                            <?= $cart['nama_bahan']?>
+                                        </a>
+                                    <?php endforeach;?>
+                                    <!-- <a class="dropdown-item" href="#"><i class="ft-book"></i>
                                         cart content feach
                                     </a>
                                     <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
                                         cart content
-                                    </a>
-                                    <a class="dropdown-item" href="#"><i class="ft-check-square"></i> 
+                                    </a> -->
+                                    <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i> 
                                         Lihat semua
                                     </a>
                                 </div>
@@ -119,9 +124,10 @@
     <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="theme-assets/images/backgrounds/02.jpg">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="index.html"><img class="brand-logo" alt="Chameleon admin logo" src="<?= base_url() ?>template/theme-assets/images/logo/logo.png" />
-                        <h3 class="brand-text">Chameleon</h3>
-                    </a></li>
+                <li class="nav-item"><a class="navbar-brand" href="#">
+                        <img width="150px" class="ml-2" alt="Logo Rumah Lemon PKU" src="<?= base_url() ?>assets/image/Logo_RLP_Long.png" />
+                    </a>
+                </li>
                 <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
             </ul>
         </div>
@@ -139,9 +145,9 @@
                                             echo 'active';
                                         } ?>"><a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/supplier') {
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'supplier/index') {
                                             echo 'active';
-                                        } ?>"><a href="<?= site_url('admin/supplier') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
+                                        } ?>"><a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
                 <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') {
                                             echo 'active';
