@@ -114,6 +114,6 @@ class Bahan extends CI_Controller {
     public function delete($id)
     {
         $this->BahanModel->delete($id);
-        redirect('bahan');
+        redirect('Bahan');
     }
 }

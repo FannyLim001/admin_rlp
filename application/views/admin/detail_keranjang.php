@@ -113,7 +113,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-actions center">
-                                                    <input type="hidden" name="no_penjualan" value="T<?= time() ?>" readonly class="form-control">
+                                                    <input type="hidden" name="no_transaksi" value="T-RLP-<?= time() ?>" readonly class="form-control">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Pesan</button>
                                                     </div>
                                                 </form>

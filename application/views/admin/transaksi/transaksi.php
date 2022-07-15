@@ -22,9 +22,9 @@
             <!-- Basic Tables start -->
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tabel Transaksi &nbsp;<a href="<?= site_url('Transaksi/add'); ?>" class="btn btn-primary"><i class="ft-plus-square"></i></a></h4>
+                            <h4 class="card-title">Tabel <?= $title ?> <?= $this->session->flashdata('message'); ?></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
@@ -38,39 +38,34 @@
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="tableId">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Supplier</th>
+                                                <th>Nomor Transaksi</th>
                                                 <th>Karyawan</th>
-                                                <th>Status Transaksi</th>
-                                                <th>Bukti Pembayaran</th>
-                                                <th>Tanggal Transaksi</th>
-                                                <th>Aksi</th>
+                                                <th>Supplier</th>
+                                                <th>Tanggal</th>
+                                                <th>Status</th>
+                                                <th>Ingfo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php
+                                            $i = 1;
+                                            foreach ($transaksi as $t) {
+                                        ?>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td><button type="button" class="btn btn-info"><i class="ft-edit"></i></button>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger"><i class="ft-trash-2"></i></button>
+                                                <th scope="row"><?= $i ?></th>
+                                                <td><?= $t['no_transaksi'] ?></td>
+                                                <td><?= $t['nama_karyawan'] ?></td>
+                                                <td><?= $t['nama_supplier'] ?> - <?= $t['alamat_supplier'] ?></td>
+                                                <td><?= $t['tanggal'] ?></td>
+                                                <td><?= $t['status_transaksi'] ?></td>
+                                                <td><a href="<?= site_url('Admin/detail_transaksi/') . $t['no_transaksi']; ?>" class="btn btn-info"><i class="la la-info-circle"></i></a>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td><button type="button" class="btn btn-info"><i class="ft-edit"></i></button>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger"><i class="ft-trash-2"></i></button>
-                                            </tr>
+                                            <?php $i++;
+                                        } ?>
                                         </tbody>
                                     </table>
                                 </div>

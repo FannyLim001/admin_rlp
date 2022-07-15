@@ -1,10 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class BahanModel extends CI_Model
+class DetailTransaksiModel extends CI_Model
 {
-    private $table = 'bahan';
-    private $id = 'id_bahan';
+    private $table = 'detail_transaksi dt';
 
     public function __construct()
     {
@@ -18,10 +17,12 @@ class BahanModel extends CI_Model
         return $query->result_array();
     }
 
-    public function getById($id)
+    public function getByTransaksi($id)
     {
+        $this->db->select('dt.*, nama_bahan');
         $this->db->from($this->table);
-        $this->db->where($this->id, $id);
+        $this->db->join('bahan b', 'b.id_bahan = dt.id_bahan');
+        $this->db->where('no_transaksi', $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -34,14 +35,6 @@ class BahanModel extends CI_Model
 
     public function insert($data)
     {
-        $this->db->insert($this->table, $data);
-        return $this->db->insert_id();
-    }
-
-    public function delete($id)
-    {
-        $this->db->where('id_bahan', $id);
-        $this->db->delete($this->table);
-        return $this->db->affected_rows();
+        return $this->db->insert_batch($this->table, $data);
     }
 }

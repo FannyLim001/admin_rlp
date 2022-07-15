@@ -39,22 +39,22 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <img src="<?= base_url('./assets/image/bahan/') . $bahan['gambar_bahan'] ?>" style="width:200px" class="img-thumbnail">
+                                        <img src="<?= base_url('./assets/image/transaksi/') . $transaksi['bukti_transaksi'] ?>" style="width:400px" class="img-thumbnail">
                                     </div>
                                     <div class="col mr-2">
                                         <div class="card-body">
                                             <form action="" method="POST">
-                                                <input type="hidden" name="id" value="<?= $bahan['id_bahan']; ?>">
+                                                <input type="hidden" name="id" value="<?= $transaksi['id_bahan']; ?>">
                                                 <input type="hidden" name="tanggal" value="<?= date('d/m/Y') ?>">
 
                                                 <div class="form-group">
                                                     <label for="nama">Nama Bahan</label>
-                                                    <input name="nama" type="text" value="<?= $bahan['nama_bahan']; ?>" readonly class="form-control" id="nama">
+                                                    <input name="nama" type="text" value="<?= $transaksi['nama_bahan']; ?>" readonly class="form-control" id="nama">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="stok">Stok tersedia</label>
-                                                    <input name="stok" value="<?= $bahan['stok_bahan']; ?>" type="text" readonly class="form-control" id="stok_bahan">
+                                                    <input name="stok" value="<?= $transaksi['stok_bahan']; ?>" type="text" readonly class="form-control" id="stok_bahan">
                                                 </div>
 
                                                 <div class="form-group">
