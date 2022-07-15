@@ -58,7 +58,16 @@ class Bahan extends CI_Controller {
             }
     
             $this->BahanModel->insert($data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Bahan berhasil ditambah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Bahan berhasil ditambah!</strong>
+			</div>');
             redirect("Bahan");
         }
     }
@@ -106,7 +115,16 @@ class Bahan extends CI_Controller {
     
             $id = $this->input->post('id_bahan');
             $this->BahanModel->update(['id_bahan' => $id], $data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Bahan berhasil diubah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Bahan berhasil diubah!</strong>
+			</div>');
             redirect("Bahan");
         }
     }

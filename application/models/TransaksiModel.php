@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class TransaksiModel extends CI_Model
 {
-    private $table = 'transaksi t';
+    private $table = 'transaksi';
 
     public function __construct()
     {
@@ -13,7 +13,7 @@ class TransaksiModel extends CI_Model
     public function get()
     {
         $this->db->select('t.*, k.nama as nama_karyawan , nama_supplier, alamat_supplier');
-        $this->db->from($this->table);
+        $this->db->from('transaksi t');
         $this->db->join('user k', 'k.id_user = t.id_karyawan');
         $this->db->join('supplier s', 's.id_supplier = t.id_supplier');
         $query = $this->db->get();
@@ -23,12 +23,12 @@ class TransaksiModel extends CI_Model
     public function getByTransaksi($id)
     {
         $this->db->select('t.*, k.nama as nama_karyawan , nama_supplier, alamat_supplier');
-        $this->db->from($this->table);
+        $this->db->from('transaksi t');
         $this->db->join('user k', 'k.id_user = t.id_karyawan');
         $this->db->join('supplier s', 's.id_supplier = t.id_supplier');
         $this->db->where('no_transaksi', $id);
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->row_array();
     }
 
     public function update($where, $data)

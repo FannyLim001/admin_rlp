@@ -48,7 +48,16 @@ class Supplier extends CI_Controller {
                 'no_telp' => $this->input->post('no_telp')
             ];
             $this->SupplierModel->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Supplier berhasil ditambah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Supplier berhasil ditambah!</strong>
+			</div>');
             redirect("Supplier");
         }
     }
@@ -82,7 +91,16 @@ class Supplier extends CI_Controller {
 
             $id = $this->input->post('id_supplier');
             $this->SupplierModel->update(['id_supplier' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Supplier berhasil diubah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Supplier berhasil diubah!</strong>
+			</div>');
             redirect("Supplier");
         }
     }

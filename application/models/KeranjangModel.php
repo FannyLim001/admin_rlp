@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class KeranjangModel extends CI_Model
 {
-    public $table = 'keranjang k';
+    public $table = 'keranjang';
     public $id = 'id_keranjang';
 
     public function __construct()
@@ -14,7 +14,7 @@ class KeranjangModel extends CI_Model
     public function get()
     {
         $this->db->select('k.*, b.nama_bahan as nama_bahan');
-        $this->db->from($this->table);
+        $this->db->from('keranjang k');
         $this->db->join('bahan b', 'b.id_bahan = k.id_bahan');
         $query = $this->db->get();
         return $query->result_array();
@@ -43,7 +43,7 @@ class KeranjangModel extends CI_Model
     public function delete($id)
     {
         $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
+        $this->db->delete('keranjang');
         return $this->db->affected_rows();
     }
 

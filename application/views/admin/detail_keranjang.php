@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <?= $this->session->flashdata('message'); ?>
         <div class="content-body">
             <!-- Basic Tables start -->
             <div class="row">
@@ -39,7 +40,6 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <?= $this->session->flashdata('message'); ?>
                                     </div>
                                     <div class="col-md-12">
                                         <table class="table">

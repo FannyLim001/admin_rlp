@@ -38,7 +38,7 @@
 </head>
 
 
-<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
     <!-- fixed-top-->
     <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
         <div class="navbar-wrapper">
@@ -137,13 +137,13 @@
                 <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') echo 'active'; ?>">
                     <a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan") echo 'active'; ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan" || substr($this->uri->uri_string(), 0, 5) == "Bahan") echo 'active'; ?>">
                     <a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan") echo 'active'; ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan" || substr($this->uri->uri_string(), 0, 8) == "Karyawan") echo 'active'; ?>">
                     <a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier") echo 'active' ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier" || substr($this->uri->uri_string(), 0, 8) == "Supplier") echo 'active' ?>">
                     <a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
                 <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') echo 'active' ?>">

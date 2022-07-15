@@ -49,7 +49,16 @@ class Karyawan extends CI_Controller {
                 'role' => 'Karyawan'
             ];
             $this->KaryawanModel->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Karyawan berhasil ditambah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Karyawan berhasil ditambah!</strong>
+			</div>');
             redirect("Karyawan");
         }
     }
@@ -83,7 +92,16 @@ class Karyawan extends CI_Controller {
 
             $id = $this->input->post('id_user');
             $this->KaryawanModel->update(['id_user' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Karyawan berhasil diubah!</div>');
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Karyawan berhasil diubah!</strong>
+			</div>');
             redirect("Karyawan");
         }
     }

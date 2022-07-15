@@ -45,6 +45,8 @@ class Admin extends CI_Controller
 		$data['keranjang'] = $this->cart->get();
 		$data['transaksi'] = $this->TransaksiModel->getByTransaksi($id);
 		$data['detail_transaksi'] = $this->DetailTransaksiModel->getByTransaksi($id);
+		$data['karyawan'] = $this->KaryawanModel->get();
+		// print_r($data['transaksi']); die;
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/transaksi/detail_transaksi', $data);
@@ -73,7 +75,18 @@ class Admin extends CI_Controller
 				'tanggal' => $this->input->post('tanggal'),
 			];
 			$this->cart->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Bahan berhasil masuk ke keranjang!</div>');
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+					<span class="alert-icon">
+						<i class="ft-thumbs-up"></i>
+					</span>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<strong>Bahan berhasil masuk ke keranjang!</strong>
+				</div>'
+			);
 			redirect('Bahan');
 		}
 	}
@@ -95,7 +108,16 @@ class Admin extends CI_Controller
 	public function delkeranjang($id)
 	{
 		$this->cart->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus dari keranjang!</div>');
+		$this->session->set_flashdata('message', 
+		'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+			<span class="alert-icon">
+				<i class="ft-thumbs-up"></i>
+			</span>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>Bahan berhasil dihapus dari keranjang!</strong>
+		</div>');
 		redirect('Admin/detail');
 	}
 
@@ -132,10 +154,28 @@ class Admin extends CI_Controller
 		}
 		if ($this->TransaksiModel->insert($data_p, $upload_image) && $this->DetailTransaksiModel->insert($data_detail)) {
 			$this->cart->delete_all();
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan Berhasil dibuat!</div>');
+			$this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Pesanan Berhasil dibuat!</strong>
+			</div>');
 			redirect('Bahan');
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pesanan Gagal dibuat!</div>');
+			$this->session->set_flashdata('message', 
+			'<div class="alert round bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-down"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Pesanan Gagal dibuat!</strong>
+			</div>');
 			redirect('Bahan');
 		}
 	}
