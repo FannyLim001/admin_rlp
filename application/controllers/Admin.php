@@ -24,17 +24,6 @@ class Admin extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function supplier()
-	{
-		$data['title'] = 'Supplier';
-		$data['cartCount'] = $this->cart->count();
-		$data['keranjang'] = $this->cart->get();
-
-		$this->load->view('layout/header', $data);
-		$this->load->view('admin/supplier', $data);
-		$this->load->view('layout/footer');
-	}
-
 	public function transaksi()
 	{
 		$data['title'] = 'Transaksi';
@@ -42,7 +31,7 @@ class Admin extends CI_Controller
 		$data['keranjang'] = $this->cart->get();
 
 		$this->load->view('layout/header', $data);
-		$this->load->view('admin/transaksi', $data);
+		$this->load->view('admin/transaksi/transaksi', $data);
 		$this->load->view('layout/footer');
 	}
 

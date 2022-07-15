@@ -63,7 +63,7 @@
                                                             <!-- Stok ada -->
                                                             <button type="button" class="btn btn-success btn-min-width w-75 mr-1 mb-1">Stok Ada</button>
                                                         <?php
-                                                        } else if ($b['stok_bahan'] > 1) { ?>
+                                                        } else if ($b['stok_bahan'] > 0) { ?>
                                                             <!-- Stok Sisa Sedikit -->
                                                             <button type="button" class="btn btn-warning btn-min-width w-75 mr-1 mb-1">Stok Sisa Sedikit</button>
                                                         <?php

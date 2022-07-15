@@ -85,18 +85,18 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right">
-                                    <?php foreach($keranjang as $cart):?>
+                                    <?php foreach ($keranjang as $cart) : ?>
                                         <a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                            <?= $cart['nama_bahan']?>
+                                            <?= $cart['nama_bahan'] ?>
                                         </a>
-                                    <?php endforeach;?>
+                                    <?php endforeach; ?>
                                     <!-- <a class="dropdown-item" href="#"><i class="ft-book"></i>
                                         cart content feach
                                     </a>
                                     <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
                                         cart content
                                     </a> -->
-                                    <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i> 
+                                    <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i>
                                         Lihat semua
                                     </a>
                                 </div>
@@ -131,27 +131,23 @@
                 <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
             </ul>
         </div>
+
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') {
-                                        echo 'active';
-                                    } ?>"><a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') echo 'active'; ?>">
+                    <a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'bahan/index' || $this->uri->uri_string() == 'bahan/add' || $this->uri->uri_string() == 'bahan/edit/') {
-                                            echo 'active';
-                                        } ?>"><a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan") echo 'active'; ?>">
+                    <a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'karyawan/index') {
-                                            echo 'active';
-                                        } ?>"><a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan") echo 'active'; ?>">
+                    <a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'supplier/index') {
-                                            echo 'active';
-                                        } ?>"><a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier") echo 'active' ?>">
+                    <a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') {
-                                            echo 'active';
-                                        } ?>"><a href="<?= site_url('admin/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') echo 'active' ?>">
+                    <a href="<?= site_url('admin/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
                 </li>
             </ul>
         </div>
