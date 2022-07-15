@@ -44,17 +44,22 @@
                                     <div class="col mr-2">
                                         <div class="card-body">
                                             <form action="" method="POST">
-                                                <input type="hidden" name="id" value="<?= $transaksi['id_bahan']; ?>">
+                                                <input type="text" name="nomor_transaksi" value="<?= $transaksi['nomor_transaksi']; ?>">
                                                 <input type="hidden" name="tanggal" value="<?= date('d/m/Y') ?>">
-
+                                                
                                                 <div class="form-group">
-                                                    <label for="nama">Nama Bahan</label>
-                                                    <input name="nama" type="text" value="<?= $transaksi['nama_bahan']; ?>" readonly class="form-control" id="nama">
+                                                    <label for="nama">Nomor Transaksi</label>
+                                                    <input type="text" name="nomor_transaksi" value="<?= $transaksi['nomor_transaksi']; ?>" readonly class="form-control">                                                
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="stok">Stok tersedia</label>
-                                                    <input name="stok" value="<?= $transaksi['stok_bahan']; ?>" type="text" readonly class="form-control" id="stok_bahan">
+                                                    <label for="nama_karyawan">Nama Karyawan</label>
+                                                    <input name="nama_karyawan" type="text" value="<?= $transaksi['nama_karyawan']; ?>" readonly class="form-control" id="nama">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="status">Status</label>
+                                                    <input name="status_transaksi" value="<?= $transaksi['nama_supplier']; ?> - <?= $transaksi['alamat_supplier']; ?>" type="text" readonly class="form-control" id="stok_bahan">
                                                 </div>
 
                                                 <div class="form-group">
