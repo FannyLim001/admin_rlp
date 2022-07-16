@@ -38,7 +38,7 @@
 </head>
 
 
-<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="<?php echo ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') ? 'bg-chartbg' : 'bg-gradient-x-purple-blue' ?>" data-col="2-columns">
     <!-- fixed-top-->
     <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
         <div class="navbar-wrapper">
@@ -72,36 +72,6 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-notification nav-item">
-                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
-                                <i class="la la-archive" id="notification-navbar-link"></i>
-                                <!-- <i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i> -->
-                                <?php if ($cartCount > 0) { ?>
-                                    <span class="badge badge-pill badge-sm badge-danger badge-up ">
-                                        <?= $cartCount ?>
-                                    </span>
-                                <?php } ?>
-                                <!-- <span class="badge badge badge-info badge-pill float-right mr-2">1</span> -->
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="arrow_box_right">
-                                    <?php foreach ($keranjang as $cart) : ?>
-                                        <a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                            <?= $cart['nama_bahan'] ?>
-                                        </a>
-                                    <?php endforeach; ?>
-                                    <!-- <a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                        cart content feach
-                                    </a>
-                                    <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
-                                        cart content
-                                    </a> -->
-                                    <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i>
-                                        Lihat semua
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -137,13 +107,13 @@
                 <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') echo 'active'; ?>">
                     <a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan" || substr($this->uri->uri_string(), 0, 5) == "Bahan") echo 'active'; ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan") echo 'active'; ?>">
                     <a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan" || substr($this->uri->uri_string(), 0, 8) == "Karyawan") echo 'active'; ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan") echo 'active'; ?>">
                     <a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier" || substr($this->uri->uri_string(), 0, 8) == "Supplier") echo 'active' ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier") echo 'active' ?>">
                     <a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
                 <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') echo 'active' ?>">
