@@ -44,4 +44,12 @@ class BahanModel extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
+
+    public function stock_increment($jumlah, $id_bahan)
+    {
+        $q = $this->db->set('stok_bahan', 'stok_bahan+'.$jumlah, false);
+        $q = $this->db->where('id_bahan', $id_bahan);
+        $q = $this->db->update($this->table);
+        return $q;
+    }
 }

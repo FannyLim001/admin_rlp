@@ -64,6 +64,7 @@
 
                                                     <?php } else { ?>
                                                         <input name="nama_karyawan" type="text" value="<?= $transaksi['nama_karyawan']; ?>" readonly class="form-control" id="nama">
+                                                        <input name="id_karyawan" type="hidden" value="<?= $transaksi['id_karyawan']; ?>" readonly class="form-control" id="nama">
                                                     <?php } ?>
                                                 </div>
 
@@ -78,6 +79,14 @@
                                                         <option value="Menunggu Karyawan" <?php echo ($transaksi['status_transaksi'] == "Menunggu Karyawan" ? 'selected' : '') ?>>Menunggu Karyawan</option>
                                                         <option value="Selesai" <?php echo ($transaksi['status_transaksi'] == "Selesai" ? 'selected' : '') ?>>Selesai</option>
                                                     </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Keterangan</label>
+                                                    <fieldset class="form-group">
+                                                        <textarea readonly class="form-control" id="" rows="3"><?= $transaksi['keterangan']?></textarea>
+                                                    </fieldset>
+
                                                 </div>
 
 
@@ -116,7 +125,8 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $i = 1; foreach ($detail_transaksi as $dt) :
+                                            <?php $i = 1;
+                                            foreach ($detail_transaksi as $dt) :
                                             ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>

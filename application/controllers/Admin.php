@@ -47,10 +47,38 @@ class Admin extends CI_Controller
 		$data['detail_transaksi'] = $this->DetailTransaksiModel->getByTransaksi($id);
 		$data['karyawan'] = $this->KaryawanModel->get();
 		// print_r($data['transaksi']); die;
+		$this->form_validation->set_rules('status_transaksi', 'Status Transaksi', 'required', [
+			'required' => 'Status wajib diisi!'
+		]);
 
-		$this->load->view('layout/header', $data);
-		$this->load->view('admin/transaksi/detail_transaksi', $data);
-		$this->load->view('layout/footer');
+		if ($this->form_validation->run() == false) {
+			$this->load->view('layout/header', $data);
+			$this->load->view('admin/transaksi/detail_transaksi', $data);
+			$this->load->view('layout/footer');
+		} else {
+			$data = [
+				'status_transaksi'=> $this->input->post('status_transaksi'),
+				'id_karyawan' => $this->input->post('id_karyawan')
+			];
+			$where = [
+				'no_transaksi'=> $this->input->post('nomor_transaksi')
+			];
+
+			$this->TransaksiModel->update($where, $data);
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+					<span class="alert-icon">
+						<i class="ft-thumbs-up"></i>
+					</span>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<strong>Transaksi berhasil diubah!</strong>
+				</div>'
+			);
+			redirect('admin/transaksi');
+		}
 	}
 
 	public function keranjang($id)
@@ -108,8 +136,9 @@ class Admin extends CI_Controller
 	public function delkeranjang($id)
 	{
 		$this->cart->delete($id);
-		$this->session->set_flashdata('message', 
-		'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
 			<span class="alert-icon">
 				<i class="ft-thumbs-up"></i>
 			</span>
@@ -117,7 +146,8 @@ class Admin extends CI_Controller
 				<span aria-hidden="true">&times;</span>
 			</button>
 			<strong>Bahan berhasil dihapus dari keranjang!</strong>
-		</div>');
+		</div>'
+		);
 		redirect('Admin/detail');
 	}
 
@@ -153,9 +183,29 @@ class Admin extends CI_Controller
 			$data_detail[$i]['jumlah'] = $this->input->post('jumlah_p')[$i];
 		}
 		if ($this->TransaksiModel->insert($data_p, $upload_image) && $this->DetailTransaksiModel->insert($data_detail)) {
+			for($i = 0; $i < $jumlah_bahan; $i++)
+			{
+				$this->BahanModel->stock_increment($data_detail[$i]['jumlah'], $data_detail[$i]['id_bahan']) or 
+				die(
+					$this->session->set_flashdata(
+						'message',
+						'<div class="alert round bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+						<span class="alert-icon">
+							<i class="ft-thumbs-down"></i>
+						</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong>Stok Bahan Gagal ditambahkan!</strong>
+					</div>'
+					)
+				);
+			}
+
 			$this->cart->delete_all();
-			$this->session->set_flashdata('message', 
-			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
 				<span class="alert-icon">
 					<i class="ft-thumbs-up"></i>
 				</span>
@@ -163,11 +213,13 @@ class Admin extends CI_Controller
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<strong>Pesanan Berhasil dibuat!</strong>
-			</div>');
+			</div>'
+			);
 			redirect('Bahan');
 		} else {
-			$this->session->set_flashdata('message', 
-			'<div class="alert round bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert round bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
 				<span class="alert-icon">
 					<i class="ft-thumbs-down"></i>
 				</span>
@@ -175,7 +227,8 @@ class Admin extends CI_Controller
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<strong>Pesanan Gagal dibuat!</strong>
-			</div>');
+			</div>'
+			);
 			redirect('Bahan');
 		}
 	}
