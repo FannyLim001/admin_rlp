@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2022 at 05:17 PM
+-- Generation Time: Jul 16, 2022 at 12:52 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,10 +39,12 @@ CREATE TABLE `bahan` (
 --
 
 INSERT INTO `bahan` (`id_bahan`, `nama_bahan`, `stok_bahan`, `gambar_bahan`) VALUES
-(5, 'Gulakusadasdasa', 40, '1637c5f1-7a8f-4d0a-a783-4ca7d38a0447.png'),
-(6, 'Lemon', 1, 'lemon_segar.jpeg'),
-(7, 'Sabun', 20, 'Face_Scrub.jpg'),
-(8, 'adasdasda', 123, 'Body_Scrub_Lemon.jpeg');
+(5, 'Gulakusadasdasa', 69, 'Xiao_(Genshin_Impact)_full_3209324.jpg'),
+(6, 'Lemon', 70, 'lemon_segar.jpeg'),
+(7, 'Sabun', 69, 'Face_Scrub.jpg'),
+(8, 'adasdasda', 169, 'Body_Scrub_Lemon.jpeg'),
+(9, 'Gula', 69, 'lemon.jpg'),
+(10, 'Panir', 12, 'Xiao_(Genshin_Impact)_full_32093241.jpg');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,18 @@ CREATE TABLE `detail_transaksi` (
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_transaksi`, `id_bahan`, `jumlah`) VALUES
 (4, 'T-RLP-1657899654', 5, 10),
 (5, 'T-RLP-1657899654', 6, 21),
-(6, 'T-RLP-1657899654', 8, 1);
+(6, 'T-RLP-1657899654', 8, 1),
+(7, 'T-RLP-1657945825', 6, 10),
+(8, 'T-RLP-1657947747', 6, 68),
+(9, 'T-RLP-1657947747', 7, 49),
+(10, 'T-RLP-1657947747', 6, 68),
+(11, 'T-RLP-1657947747', 7, 49),
+(12, 'T-RLP-1657947793', 5, 39),
+(13, 'T-RLP-1657947793', 8, 46),
+(14, 'T-RLP-1657965565', 5, 1),
+(15, 'T-RLP-1657965565', 6, 1),
+(16, 'T-RLP-1657965755', 5, 59),
+(17, 'T-RLP-1657965755', 9, 69);
 
 -- --------------------------------------------------------
 
@@ -97,7 +110,8 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `no_telp`) VALUES
-(2, 'Bonbon', 'Jl. Sutomo', '0916262');
+(2, 'Bonbon', 'Jl. Sutomo', '0916262'),
+(3, 'Fanny', 'Rowosari', 'xxxxxxxxxxxxxxxx');
 
 -- --------------------------------------------------------
 
@@ -121,7 +135,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `no_transaksi`, `id_karyawan`, `id_supplier`, `tanggal`, `bukti_transaksi`, `keterangan`, `status_transaksi`) VALUES
-(2, 'T-RLP-1657899654', 2, 2, '15/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a0447.png', 'Yo', 'Menunggu Karyawan');
+(2, 'T-RLP-1657899654', 2, 2, '15/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a0447.png', 'Yo', 'Selesai'),
+(3, 'T-RLP-1657945825', 4, 2, '16/07/2022', 'lemonv2.jpg', 'asdasd', 'Selesai'),
+(4, 'T-RLP-1657947747', 4, 2, '16/07/2022', 'Xiao_(Genshin_Impact)_full_3209324.jpg', 'bismillah', 'Sudah mengambil bahan'),
+(6, 'T-RLP-1657947793', 2, 2, '16/07/2022', 'lemon.jpg', 'slebew', 'Sedang mengambil bahan'),
+(7, 'T-RLP-1657965565', 4, 2, '16/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '-', 'Menunggu Karyawan'),
+(8, 'T-RLP-1657965755', 2, 3, '16/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'qdsdadsfasasfasda4tfas', 'Menunggu Karyawan');
 
 -- --------------------------------------------------------
 
@@ -142,9 +161,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `role`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin', 'Admin'),
-(2, 'Anto', 'budi@gmail.com', 'budi123', 'Karyawan'),
-(4, 'Aldi', 'adli@gmail.com', 'aldi123', 'Karyawan');
+(1, 'Admin', 'admin@gmail.com', '$2y$10$Ax8sglkrMO7w.emB2dJ2ieF7LDxdyehwlV/HuEdh0jW/67kyhsooq', 'Admin'),
+(2, 'Anton', 'anto@gmail.com', '$2y$10$BQmHCWXXg3sSN.TnqSDeaORqqtzkoIMB3.essTLNlgacu2mT8L0fC', 'Karyawan'),
+(4, 'Aldi', 'adli@gmail.com', '$2y$10$QPiJa01JXe5YE1XFbWplgeEbk.nHVS3tth.A27Q8nmf0x.NLZPWTm', 'Karyawan');
 
 --
 -- Indexes for dumped tables
@@ -181,6 +200,7 @@ ALTER TABLE `supplier`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
+  ADD UNIQUE KEY `no_transaksi` (`no_transaksi`),
   ADD KEY `fk_karyawan_transaksi` (`id_karyawan`),
   ADD KEY `fk_supplier_transaksi` (`id_supplier`);
 
@@ -198,31 +218,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
