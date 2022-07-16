@@ -18,13 +18,14 @@
 				</div>
 			</div>
 		</div>
+        <?= $this->session->flashdata('message'); ?>
 		<div class="content-body">
 			<!-- ../../../theme-assets/images/carousel/22.jpg -->
 
 			<!-- Content types section start -->
 			<section id="content-types">
 				<div class="row match-height">
-
+                
 					<div class="col-xl-12 col-md-12">
 						<div class="card">
 							<div class="card-content">
@@ -32,17 +33,17 @@
 									<h4 class="card-title">Form <?= $title ?></h4>
 								</div>
 								<div class="card-body">
-									<form action="" method="POST" enctype="multipart/form-data">
-									<input type="hidden" name="id_user" class="form-control" value="<?= $karyawan['id_user'] ?>">
+									<form action="" method="post" enctype="multipart/form-data">
+										<input type="hidden" name="id_bahan" class="form-control" value="<?= $admin['id_user'] ?>">
 										<div class="form-body">
 											<div class="form-group">
-												<label for="donationinput1" class="sr-only">Nama Karyawan</label>
-												<input type="text" id="donationinput1" value="<?= $karyawan['nama'] ?>" class="form-control" placeholder="Nama Karyawan" name="nama_karyawan">
-												<?= form_error('nama_karyawan', '<small class="text-danger pl-3">', '</small>'); ?>
+												<label for="donationinput1" class="sr-only">Nama</label>
+												<input type="text" id="donationinput1" class="form-control" placeholder="Nama Bahan" name="nama" value="<?= $admin['nama']; ?>">
+												<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group">
 												<label for="donationinput2" class="sr-only">Email</label>
-												<input type="email" id="donationinput2" value="<?= $karyawan['email'] ?>" class="form-control" placeholder="Email" name="email">
+												<input type="text" id="donationinput2" class="form-control" placeholder="Ketersediaan Bahan" name="email" value="<?= $admin['email']; ?>">
 												<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 										</div>

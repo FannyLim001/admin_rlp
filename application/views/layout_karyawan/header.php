@@ -64,21 +64,13 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language"></span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-flag">
-                                <div class="arrow_box"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ru"></i>
-                                        Russian</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-es"></i> Spanish</a></div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">John
                                                 Doe</span></span></a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a><a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i class="ft-power"></i> Logout</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('pekerja/edit') ?>"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#">
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('auth/logout') ?>"><i class="ft-power"></i> Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -104,20 +96,11 @@
 
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') echo 'active'; ?>">
-                    <a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                <li class="nav-item <?php if ($this->uri->uri_string() == 'pekerja' || $this->uri->uri_string() == '') echo 'active'; ?>">
+                    <a href="<?= site_url('pekerja') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan") echo 'active'; ?>">
-                    <a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
-                </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan") echo 'active'; ?>">
-                    <a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
-                </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier") echo 'active' ?>">
-                    <a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
-                </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') echo 'active' ?>">
-                    <a href="<?= site_url('admin/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'pekerja/transaksi' || $title == "Detail Transaksi") echo 'active' ?>">
+                    <a href="<?= site_url('pekerja/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
                 </li>
             </ul>
         </div>

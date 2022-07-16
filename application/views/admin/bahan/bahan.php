@@ -77,7 +77,32 @@
                                                     <td><img src="<?= base_url('assets/image/bahan/') . $b['gambar_bahan']; ?>" alt="pic" height="70px"></td>
                                                     <td><a class="btn btn-primary" href="<?= site_url('Admin/keranjang/') . $b['id_bahan']; ?>"><i class="ft-plus"></i></a>&nbsp;&nbsp;
                                                         <a class="btn btn-info" href="<?= site_url('bahan/edit/') . $b['id_bahan']; ?>"><i class="ft-edit"></i></a>&nbsp;&nbsp;
-                                                        <a class="btn btn-danger" href="<?= site_url('bahan/delete/') . $b['id_bahan']; ?>"><i class="ft-trash-2"></i></a>
+                                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-keyboard="false" data-target="#keyboard1"><i class="ft-trash-2"></i></button>
+
+                                                        <!-- Modal -->
+
+
+                                                        <div class="modal fade text-left" id="keyboard1" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3" aria-hidden="true">
+                                                            <form action="<?= site_url('bahan/delete/') . $b['id_bahan'];?>" method="POST">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title" id="basicModalLabel3">Basic Modal</h4>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>Apakah anda yakin ingin menghapus data ini?</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-danger">Oke</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                 </tr>
                                             <?php $i++;
                                             } ?>

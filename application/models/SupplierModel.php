@@ -45,4 +45,11 @@ class SupplierModel extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function count_total()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get()->num_rows();
+        return $query;
+    }
+
 }

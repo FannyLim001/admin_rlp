@@ -52,4 +52,18 @@ class BahanModel extends CI_Model
         $q = $this->db->update($this->table);
         return $q;
     }
+
+    public function count_total()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get()->num_rows();
+        return $query;
+    }
+
+    public function count_curr()
+    {
+        $query = $this->db->query("SELECT * FROM bahan WHERE stok_bahan > 0");
+        return $query->num_rows();
+    }
+
 }

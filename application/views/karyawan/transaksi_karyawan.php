@@ -63,7 +63,7 @@
                                                 <td><?= $t['nama_supplier'] ?> - <?= $t['alamat_supplier'] ?></td>
                                                 <td><?= $t['tanggal'] ?></td>
                                                 <td><?= $t['status_transaksi'] ?></td>
-                                                <td><a href="<?= site_url('Admin/detail_transaksi/') . $t['no_transaksi']; ?>" class="btn btn-info"><i class="la la-info-circle"></i></a>
+                                                <td><a href="<?= site_url('pekerja/detail_transaksi/') . $t['no_transaksi']; ?>" class="btn btn-info"><i class="la la-info-circle"></i></a>
                                             </tr>
                                             <?php $i++;
                                         } ?>

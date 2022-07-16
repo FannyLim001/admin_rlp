@@ -12,7 +12,10 @@
     <title>Login - Admin dan Karyawan</title>
     <link rel="apple-touch-icon" href="<?= base_url() ?>template/theme-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>template/theme-assets/images/ico/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://demos.themeselection.com/chameleon-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/vendors/css/vendors.min.css">
@@ -20,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/plugins/forms/switch.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/core/colors/palette-switch.min.css">
     <!-- END: Vendor CSS-->
+    
 
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/theme-assets/css/bootstrap.min.css">
@@ -71,9 +75,9 @@
                     </div>
                 </div>
                 <div class="card-content">
-                   
                     <div class="card-body">
-                        <form class="form-horizontal" action="<?= site_url('login/cek_login'); ?>"  method="POST">
+                        <?= $this->session->flashdata('message'); ?>
+                        <form class="form-horizontal" action="<?= site_url('auth/cek_login'); ?>"  method="POST">
                             <fieldset class="form-group position-relative has-icon-left">
                                 <input type="text" class="form-control round" id="user-name" placeholder="Email" name="email" required>
                                 <div class="form-control-position">
@@ -85,7 +89,13 @@
                                 <div class="form-control-position">
                                     <i class="ft-lock"></i>
                                 </div>
-                            </fieldset>                        
+                            </fieldset> 
+                            <div class="form-group row">
+                                <div class="col-md-6 col-12 text-center text-sm-left">
+                                   
+                                </div>
+                                <div class="col-md-6 col-12 float-sm-left text-center text-sm-right"><a href="<?= site_url('auth/forgot_password'); ?>" class="card-link">Forgot Password?</a></div>
+                            </div>                       
                             <div class="form-group text-center">
                                 <button type="submit" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">Login</button>    
                             </div>

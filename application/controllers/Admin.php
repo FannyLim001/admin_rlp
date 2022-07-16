@@ -7,6 +7,7 @@ class Admin extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		admin_logged_in();
 		$this->load->model('KeranjangModel', 'cart');
 		$this->load->model('BahanModel');
 		$this->load->model('KaryawanModel');
@@ -20,10 +21,58 @@ class Admin extends CI_Controller
 		$data['title'] = 'Dashboard';
 		$data['cartCount'] = $this->cart->count();
 		$data['keranjang'] = $this->cart->get();
+		$data['total_bahan'] = $this->BahanModel->count_total();
+		$data['total_karyawan'] = $this->KaryawanModel->count_total();
+		$data['total_supplier'] = $this->SupplierModel->count_total();
+		$data['total_transaksi'] = $this->TransaksiModel->count_total();
+		$data['transaksi_berjalan'] = $this->TransaksiModel->count_curr();
+		$data['stok_diambil'] = $this->TransaksiModel->count_left();
+		$data['stok_tersedia'] = $this->BahanModel->count_curr();
+
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('admin/dashboard', $data);
 		$this->load->view('layout/footer');
+	}
+
+	public function edit()
+	{
+		$data['title'] = 'Edit Profile';
+		$data['admin'] = $this->KaryawanModel->getById(1);
+		$data['cartCount'] = $this->cart->count();
+		$data['keranjang'] = $this->cart->get();
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required', [
+            'required' => 'Nama Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('email', 'Email', 'required', [
+            'required' => 'Email Wajib di isi'
+        ]);
+
+		if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('admin/profile', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'email' => $this->input->post('email'),
+            ];
+
+            $id = 1;
+            $this->KaryawanModel->update(['id_user' => $id], $data);
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Admin berhasil diubah!</strong>
+			</div>');
+            redirect("admin/edit");
+        }
 	}
 
 	public function transaksi()

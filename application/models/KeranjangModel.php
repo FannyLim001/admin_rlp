@@ -13,7 +13,7 @@ class KeranjangModel extends CI_Model
 
     public function get()
     {
-        $this->db->select('k.*, b.nama_bahan as nama_bahan');
+        $this->db->select('k.*, b.nama_bahan as nama_bahan, b.gambar_bahan as gambar_bahan',);
         $this->db->from('keranjang k');
         $this->db->join('bahan b', 'b.id_bahan = k.id_bahan');
         $query = $this->db->get();

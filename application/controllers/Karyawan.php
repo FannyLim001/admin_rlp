@@ -6,6 +6,7 @@ class Karyawan extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+        admin_logged_in();
         $this->load->model('KaryawanModel');
         $this->load->model('KeranjangModel', 'cart');
     }
@@ -45,7 +46,7 @@ class Karyawan extends CI_Controller {
             $data = [
                 'nama' => $this->input->post('nama_karyawan'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'role' => 'Karyawan'
             ];
             $this->KaryawanModel->insert($data);
@@ -75,9 +76,6 @@ class Karyawan extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required', [
             'required' => 'Email Wajib di isi'
         ]);
-        $this->form_validation->set_rules('password', 'Password', 'required', [
-            'required' => 'Password Wajib di isi'
-        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -87,7 +85,7 @@ class Karyawan extends CI_Controller {
             $data = [
                 'nama' => $this->input->post('nama_karyawan'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password')
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             ];
 
             $id = $this->input->post('id_user');

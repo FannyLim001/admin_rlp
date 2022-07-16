@@ -6,6 +6,7 @@ class Bahan extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+        admin_logged_in();
         $this->load->model('BahanModel');
         $this->load->model('KeranjangModel', 'cart');
     }
@@ -132,6 +133,36 @@ class Bahan extends CI_Controller {
     public function delete($id)
     {
         $this->BahanModel->delete($id);
+        $err = $this->db->error();
+        if($err['code'] == 0)
+        {
+            $this->session->set_flashdata('message', 
+			'<div class="alert round bg-success alert-icon-left alert-dismissible mb-2" role="alert">
+				<span class="alert-icon">
+					<i class="ft-thumbs-up"></i>
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Data Bahan berhasil dihapus!</strong>
+			</div>');
+        }
+        else
+        {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert round bg-danger alert-icon-left alert-dismissible mb-2" role="alert">
+                <span class="alert-icon">
+                    <i class="ft-thumbs-down"></i>
+                </span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Data Bahan Gagal dihapus!</strong>
+            </div>'
+            );
+        }
+        
         redirect('Bahan');
     }
 }

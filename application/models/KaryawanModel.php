@@ -28,6 +28,13 @@ class KaryawanModel extends CI_Model
         return $query->row_array();
     }
 
+    public function cek_email($email)
+    {
+        $this->db->from($this->table);
+        $this->db->where('email',$email);
+        return $this->db->get();
+    }
+
     public function update($where, $data)
     {
         $this->db->update($this->table, $data, $where);
@@ -45,6 +52,13 @@ class KaryawanModel extends CI_Model
         $this->db->where('id_user', $id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
+    }
+
+    public function count_total()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get()->num_rows();
+        return $query;
     }
 
 }

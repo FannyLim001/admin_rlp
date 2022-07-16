@@ -65,14 +65,6 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language"></span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-flag">
-                                <div class="arrow_box"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ru"></i>
-                                        Russian</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-es"></i> Spanish</a></div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-notification nav-item">
                             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                                 <i class="la la-archive" id="notification-navbar-link"></i>
@@ -84,32 +76,59 @@
                                 <?php } ?>
                                 <!-- <span class="badge badge badge-info badge-pill float-right mr-2">1</span> -->
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="arrow_box_right">
-                                    <?php foreach ($keranjang as $cart) : ?>
-                                        <a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                            <?= $cart['nama_bahan'] ?>
+                            <?php if ($cartCount > 0) { ?>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="arrow_box_right">
+                                        <table class="table">
+                                            <thead>
+                                                <th >Gambar</th>
+                                                <th>Nama Bahan</th>
+                                                <th>Jumlah</th>
+                                            </thead>
+                                            <!-- <a class="dropdown-item" href="#">
+                                            </a> -->
+                                            <tbody>
+                                                <?php foreach ($keranjang as $cart) : ?>
+                                                    <tr>
+                                                        <td>
+    
+                                                            <img src="<?= base_url('assets/image/bahan/') . $cart['gambar_bahan']; ?>" width="50px">
+                                                        </td>
+                                                        <td>
+    
+                                                            <?= $cart['nama_bahan'] ?>
+                                                        </td>
+                                                        <td>
+    
+                                                            <?= $cart['jumlah'] ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                        <!-- <a class="dropdown-item" href="#"><i class="ft-book"></i>
+                                            cart content feach
                                         </a>
-                                    <?php endforeach; ?>
-                                    <!-- <a class="dropdown-item" href="#"><i class="ft-book"></i>
-                                        cart content feach
-                                    </a>
-                                    <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
-                                        cart content
-                                    </a> -->
-                                    <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i>
-                                        Lihat semua
-                                    </a>
+                                        <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> 
+                                            cart content
+                                        </a> -->
+                                        <center>
+                                            <a class="dropdown-item" href="<?= base_url('admin/detail') ?>"><i class="ft-check-square"></i>
+                                                Lihat semua
+                                            </a>
+                                        </center>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </li>
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">John
                                                 Doe</span></span></a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a><a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i class="ft-power"></i> Logout</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('admin/edit') ?>""><i class=" ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#">
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('auth/logout') ?>"><i class="ft-power"></i> Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -138,16 +157,16 @@
                 <li class="nav-item <?php if ($this->uri->uri_string() == 'admin' || $this->uri->uri_string() == '') echo 'active'; ?>">
                     <a href="<?= site_url('admin') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan" || substr($this->uri->uri_string(), 0, 5) == "Bahan") echo 'active'; ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 5) == "bahan" || $title == "Keranjang" || $title == "Edit Bahan") echo 'active'; ?>">
                     <a href="<?= site_url('bahan/index') ?>"><i class="la la-dropbox"></i><span class="menu-title" data-i18n="">Bahan</span></a>
                 </li>
                 <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "karyawan" || substr($this->uri->uri_string(), 0, 8) == "Karyawan") echo 'active'; ?>">
                     <a href="<?= site_url('karyawan/index') ?>"><i class="la la-user"></i><span class="menu-title" data-i18n="">Karyawan</span></a>
                 </li>
-                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier" || substr($this->uri->uri_string(), 0, 8) == "Supplier") echo 'active' ?>">
+                <li class=" nav-item <?php if (substr($this->uri->uri_string(), 0, 8) == "supplier" || substr($this->uri->uri_string(), 0, 8) == "Supplier") echo 'active'; ?>">
                     <a href="<?= site_url('supplier/index') ?>"><i class="la la-user-secret"></i><span class="menu-title" data-i18n="">Supplier</span></a>
                 </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi') echo 'active' ?>">
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'admin/transaksi' || substr($this->uri->uri_string(), 0, 12) == "admin/detail" || substr($this->uri->uri_string(), 0, 12) == "Admin/detail") echo 'active' ?>">
                     <a href="<?= site_url('admin/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
                 </li>
             </ul>

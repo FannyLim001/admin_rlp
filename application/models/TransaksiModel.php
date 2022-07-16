@@ -42,4 +42,35 @@ class TransaksiModel extends CI_Model
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
+
+    public function getByIdKaryawan($id)
+    {
+        $this->db->select('t.*, k.nama as nama_karyawan , nama_supplier, alamat_supplier');
+        $this->db->from('transaksi t');
+        $this->db->join('user k', 'k.id_user = t.id_karyawan');
+        $this->db->join('supplier s', 's.id_supplier = t.id_supplier');
+        $this->db->where('id_karyawan', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+    public function count_total()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get()->num_rows();
+        return $query;
+    }
+
+    public function count_curr()
+    {
+        $query = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi != 'Selesai'");
+        return $query->num_rows();
+    }
+
+    public function count_left()
+    {
+        $query = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi != 'Selesai' AND status_transaksi = 'Sedang mengambil bahan'");
+        return $query->num_rows();
+    }
+
 }
