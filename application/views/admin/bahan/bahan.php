@@ -77,17 +77,17 @@
                                                     <td><img src="<?= base_url('assets/image/bahan/') . $b['gambar_bahan']; ?>" alt="pic" height="70px"></td>
                                                     <td><a class="btn btn-primary" href="<?= site_url('Admin/keranjang/') . $b['id_bahan']; ?>"><i class="ft-plus"></i></a>&nbsp;&nbsp;
                                                         <a class="btn btn-info" href="<?= site_url('bahan/edit/') . $b['id_bahan']; ?>"><i class="ft-edit"></i></a>&nbsp;&nbsp;
-                                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-keyboard="false" data-target="#keyboard1"><i class="ft-trash-2"></i></button>
+                                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-keyboard="false" data-target="#keyboard1<?= $b['id_bahan']?>"><i class="ft-trash-2"></i></button>
 
                                                         <!-- Modal -->
 
 
-                                                        <div class="modal fade text-left" id="keyboard1" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3" aria-hidden="true">
-                                                            <form action="<?= site_url('bahan/delete/') . $b['id_bahan'];?>" method="POST">
+                                                        <div class="modal fade text-left" id="keyboard1<?= $b['id_bahan']?>" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3" aria-hidden="true">
+                                                            <form action="<?= site_url('bahan/delete/') . $b['id_bahan'];?>" method="GET">
                                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h4 class="modal-title" id="basicModalLabel3">Basic Modal</h4>
+                                                                            <h4 class="modal-title" id="basicModalLabel3">Konfirmasi Penghapusan</h4>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                 <span aria-hidden="true">&times;</span>
                                                                             </button>

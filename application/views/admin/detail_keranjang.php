@@ -61,7 +61,7 @@
                                                             <td><?= $us['tanggal']; ?></td>
                                                             <td><?= $us['nama_bahan']; ?></td>
                                                             <td><?= $us['jumlah']; ?></td>
-                                                            <td><a href="<?= base_url('Admin/delkeranjang/') . $us['id_keranjang']; ?>" class="btn btn-danger"><i class="ft-trash-2"></i></a></td>
+                                                            <td><a href="<?= base_url('Admin/delkeranjang/') . $us['id_keranjang']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus bahan dari keranjang??')"><i class="ft-trash-2"></i></a></td>
                                                         </tr>
                                                         <input type="hidden" name="bahan[]" value="<?= $us['id_bahan']; ?>">
                                                         <input type="hidden" name="tanggal" value="<?= date('d/m/Y') ?>">

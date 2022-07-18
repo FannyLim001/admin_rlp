@@ -65,10 +65,10 @@
                             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                                 <div class="card-header border-0">
                                     <div class="text-center mb-1">
-                                        <img src="<?= base_url() ?>template/theme-assets/images/logo/logo.png" alt="branding logo">
+                                    <img src="<?= base_url() ?>assets/image/Logo_RLP_Long.png" width="400px" alt="branding logo">
                                     </div>
                                     <div class="font-large-1  text-center">
-                                        Login
+                                        <b>Login</b>
                                     </div>
                                 </div>
                                 <div class="card-content">

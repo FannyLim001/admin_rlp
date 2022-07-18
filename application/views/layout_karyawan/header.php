@@ -96,11 +96,8 @@
 
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item <?php if ($this->uri->uri_string() == 'pekerja' || $this->uri->uri_string() == '') echo 'active'; ?>">
-                    <a href="<?= site_url('pekerja') ?>"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
-                </li>
-                <li class=" nav-item <?php if ($this->uri->uri_string() == 'pekerja/transaksi' || $title == "Detail Transaksi") echo 'active' ?>">
-                    <a href="<?= site_url('pekerja/transaksi') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
+                <li class=" nav-item <?php if ($this->uri->uri_string() == 'pekerja' || $title == "Detail Transaksi") echo 'active' ?>">
+                    <a href="<?= site_url('pekerja') ?>"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Transaksi</span></a>
                 </li>
             </ul>
         </div>

@@ -49,19 +49,45 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
+                                            <?php
                                             $i = 1;
                                             foreach ($karyawan as $k) {
-                                        ?>
-                                            <tr>
-                                                <th scope="row"><?= $i ?></th>
-                                                <td><?= $k['nama'] ?></td>
-                                                <td><?= $k['email'] ?></td>
-                                                <td><a href="<?= site_url('karyawan/edit/') . $k['id_user']; ?>" class="btn btn-info"><i class="ft-edit"></i></a>&nbsp;&nbsp;
-                                                <a href="<?= site_url('karyawan/delete/') . $k['id_user']; ?>" class="btn btn-danger"><i class="ft-trash-2"></i></a>
-                                            </tr>
+                                            ?>
+                                                <tr>
+                                                    <th scope="row"><?= $i ?></th>
+                                                    <td><?= $k['nama'] ?></td>
+                                                    <td><?= $k['email'] ?></td>
+                                                    <td><a href="<?= site_url('karyawan/edit/') . $k['id_user']; ?>" class="btn btn-info"><i class="ft-edit"></i></a>&nbsp;&nbsp;
+                                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-keyboard="false" data-target="#keyboard1<?= $k['id_user'] ?>"><i class="ft-trash-2"></i></button>
+                                                    </td>
+
+                                                        <!-- Modal -->
+
+
+                                                        <div class="modal fade text-left" id="keyboard1<?= $k['id_user'] ?>" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel3" aria-hidden="true">
+                                                            <form action="<?= site_url('karyawan/delete/') . $k['id_user']; ?>" method="GET">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title" id="basicModalLabel3">Konfirmasi Penghapusan</h4>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>Apakah anda yakin ingin menghapus data ini?</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-danger">Oke</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                </tr>
                                             <?php $i++;
-                                        } ?>
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -71,7 +97,7 @@
                 </div>
             </div>
             <!-- Basic Tables end -->
-            </div>
         </div>
     </div>
+</div>
 </div>

@@ -15,15 +15,6 @@ class Pekerja extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard';
-
-		$this->load->view('layout_karyawan/header', $data);
-		$this->load->view('karyawan/dashboard_karyawan', $data);
-		$this->load->view('layout_karyawan/footer');
-	}
-
-	public function transaksi()
-	{
 		$data['title'] = 'Transaksi';
 		$id = $this->session->userdata('id');
 		$data['transaksi'] = $this->TransaksiModel->getByIdKaryawan($id);
