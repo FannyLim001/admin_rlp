@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2022 at 12:52 PM
+-- Generation Time: Jul 18, 2022 at 09:15 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -39,12 +39,11 @@ CREATE TABLE `bahan` (
 --
 
 INSERT INTO `bahan` (`id_bahan`, `nama_bahan`, `stok_bahan`, `gambar_bahan`) VALUES
-(5, 'Gulakusadasdasa', 69, 'Xiao_(Genshin_Impact)_full_3209324.jpg'),
-(6, 'Lemon', 70, 'lemon_segar.jpeg'),
-(7, 'Sabun', 69, 'Face_Scrub.jpg'),
-(8, 'adasdasda', 169, 'Body_Scrub_Lemon.jpeg'),
-(9, 'Gula', 69, 'lemon.jpg'),
-(10, 'Panir', 12, 'Xiao_(Genshin_Impact)_full_32093241.jpg');
+(5, 'Gulakusadasdasa', 70, 'Xiao_(Genshin_Impact)_full_3209324.jpg'),
+(6, 'Lemon', 270, 'lemon_segar.jpeg'),
+(7, 'Sabun', 70, 'Face_Scrub.jpg'),
+(8, 'adasdasda', 170, 'Body_Scrub_Lemon.jpeg'),
+(9, 'Gula', 138, 'lemon.jpg');
 
 -- --------------------------------------------------------
 
@@ -77,7 +76,13 @@ INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_transaksi`, `id_bahan
 (14, 'T-RLP-1657965565', 5, 1),
 (15, 'T-RLP-1657965565', 6, 1),
 (16, 'T-RLP-1657965755', 5, 59),
-(17, 'T-RLP-1657965755', 9, 69);
+(17, 'T-RLP-1657965755', 9, 69),
+(18, 'T-RLP-1658120652', 5, 1),
+(19, 'T-RLP-1658127934', 6, 199),
+(20, 'T-RLP-1658128417', 6, 1),
+(21, 'T-RLP-1658128417', 7, 1),
+(22, 'T-RLP-1658128417', 8, 1),
+(23, 'T-RLP-1658128417', 9, 69);
 
 -- --------------------------------------------------------
 
@@ -140,7 +145,10 @@ INSERT INTO `transaksi` (`id_transaksi`, `no_transaksi`, `id_karyawan`, `id_supp
 (4, 'T-RLP-1657947747', 4, 2, '16/07/2022', 'Xiao_(Genshin_Impact)_full_3209324.jpg', 'bismillah', 'Sudah mengambil bahan'),
 (6, 'T-RLP-1657947793', 2, 2, '16/07/2022', 'lemon.jpg', 'slebew', 'Sedang mengambil bahan'),
 (7, 'T-RLP-1657965565', 4, 2, '16/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '-', 'Menunggu Karyawan'),
-(8, 'T-RLP-1657965755', 2, 3, '16/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'qdsdadsfasasfasda4tfas', 'Menunggu Karyawan');
+(8, 'T-RLP-1657965755', 2, 3, '16/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'qdsdadsfasasfasda4tfas', 'Menunggu Karyawan'),
+(9, 'T-RLP-1658120652', 2, 2, '18/07/2022', '', '', 'Menunggu Karyawan'),
+(10, 'T-RLP-1658127934', 2, 2, '18/07/2022', '', '', 'Menunggu Karyawan'),
+(11, 'T-RLP-1658128417', 4, 2, '18/07/2022', '', 'Lunas.', 'Menunggu Karyawan');
 
 -- --------------------------------------------------------
 
@@ -218,37 +226,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
