@@ -60,7 +60,7 @@ class Pekerja extends CI_Controller
 					<strong>Transaksi berhasil diubah!</strong>
 				</div>'
 			);
-			redirect('pekerja/transaksi');
+			redirect('pekerja');
 		}
 	}
 
