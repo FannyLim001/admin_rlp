@@ -52,6 +52,11 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="tgl">Tanggal</label>
+                                                    <input type="text" name="tanggal" value="<?= $transaksi['tanggal']; ?>" readonly class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="nama_karyawan">Nama Karyawan</label>
                                                     <?php if ($transaksi['status_transaksi'] == "Menunggu Karyawan") { ?>
                                                         <select id="companyinput1" class="form-control" name="id_karyawan">

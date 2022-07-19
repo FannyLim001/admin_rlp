@@ -28,6 +28,7 @@ class Auth extends CI_Controller
             // if (password_verify($password, $user['password'])) {
                 // print_r($user);die;
                 $data = [
+                    'nama' => $user['nama'],
                     'email' => $user['email'],
                     'role' => $user['role'],
                     'id' => $user['id_user'],
@@ -55,6 +56,7 @@ class Auth extends CI_Controller
     function logout()
     {
         // session_destroy();
+        $this->session->unset_userdata('nama');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role');
         $this->session->unset_userdata('id');

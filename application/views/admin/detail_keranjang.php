@@ -101,13 +101,13 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label>Bukti Transaksi</label>
-                                                                    <input type="file" id="donationinput3" class="form-control" class="custom-file-input" placeholder="Bukti Transaksi" name="bukti_transaksi">
+                                                                    <input type="file" id="donationinput3" class="form-control" class="custom-file-input" placeholder="Bukti Transaksi" name="bukti_transaksi" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label>Keterangan</label>
-                                                                    <textarea name="keterangan" type="text" class="form-control" id="keterangan"></textarea>
+                                                                    <textarea name="keterangan" type="text" class="form-control" id="keterangan" required></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

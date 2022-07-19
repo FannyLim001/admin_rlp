@@ -52,6 +52,11 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="tgl">Tanggal</label>
+                                                    <input type="text" name="tanggal" value="<?= $transaksi['tanggal']; ?>" readonly class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="nama_karyawan">Nama Karyawan</label>
                                                         <input name="nama_karyawan" type="text" value="<?= $transaksi['nama_karyawan']; ?>" readonly class="form-control" id="nama">
                                                 </div>

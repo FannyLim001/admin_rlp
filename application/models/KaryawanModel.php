@@ -57,6 +57,7 @@ class KaryawanModel extends CI_Model
     public function count_total()
     {
         $this->db->from($this->table);
+        $this->db->where('role !=', 'Admin');
         $query = $this->db->get()->num_rows();
         return $query;
     }

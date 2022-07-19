@@ -44,6 +44,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nomor Transaksi</th>
+                                                <th>Tanggal</th>
                                                 <th>Karyawan</th>
                                                 <th>Supplier</th>
                                                 <th>Tanggal</th>
@@ -59,6 +60,7 @@
                                             <tr>
                                                 <th scope="row"><?= $i ?></th>
                                                 <td><?= $t['no_transaksi'] ?></td>
+                                                <td><?= $t['tanggal'] ?></td>
                                                 <td><?= $t['nama_karyawan'] ?></td>
                                                 <td><?= $t['nama_supplier'] ?> - <?= $t['alamat_supplier'] ?></td>
                                                 <td><?= $t['tanggal'] ?></td>

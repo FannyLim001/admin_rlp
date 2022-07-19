@@ -63,7 +63,7 @@ class TransaksiModel extends CI_Model
 
     public function count_curr()
     {
-        $query = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi != 'Selesai'");
+        $query = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi = 'Selesai'");
         return $query->num_rows();
     }
 

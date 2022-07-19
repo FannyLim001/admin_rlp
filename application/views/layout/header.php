@@ -82,7 +82,7 @@
                                     <div class="arrow_box_right">
                                         <table class="table">
                                             <thead>
-                                                <th >Gambar</th>
+                                                <th>Gambar</th>
                                                 <th>Nama Bahan</th>
                                                 <th>Jumlah</th>
                                             </thead>
@@ -92,15 +92,15 @@
                                                 <?php foreach ($keranjang as $cart) : ?>
                                                     <tr>
                                                         <td>
-    
+
                                                             <img src="<?= base_url('assets/image/bahan/') . $cart['gambar_bahan']; ?>" width="50px">
                                                         </td>
                                                         <td>
-    
+
                                                             <?= $cart['nama_bahan'] ?>
                                                         </td>
                                                         <td>
-    
+
                                                             <?= $cart['jumlah'] ?>
                                                         </td>
                                                     </tr>
@@ -125,8 +125,13 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span></a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">John
-                                                Doe</span></span></a>
+                                <div class="arrow_box_right">
+                                    <a class="dropdown-item" href="#">
+                                        <span class="avatar avatar-online"><img src="<?= base_url() ?>template/theme-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><span class="user-name text-bold-700 ml-1">
+                                                <?= $this->session->userdata('nama')?>
+                                            </span>
+                                        </span>
+                                    </a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('admin/edit') ?>""><i class=" ft-user"></i> Edit Profile</a><a class="dropdown-item" href="#">
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= base_url('auth/logout') ?>"><i class="ft-power"></i> Logout</a>
                                 </div>
