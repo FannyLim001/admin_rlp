@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2022 at 09:15 AM
+-- Generation Time: Jul 19, 2022 at 12:09 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,11 +39,12 @@ CREATE TABLE `bahan` (
 --
 
 INSERT INTO `bahan` (`id_bahan`, `nama_bahan`, `stok_bahan`, `gambar_bahan`) VALUES
-(5, 'Gulakusadasdasa', 70, 'Xiao_(Genshin_Impact)_full_3209324.jpg'),
-(6, 'Lemon', 270, 'lemon_segar.jpeg'),
-(7, 'Sabun', 70, 'Face_Scrub.jpg'),
-(8, 'adasdasda', 170, 'Body_Scrub_Lemon.jpeg'),
-(9, 'Gula', 138, 'lemon.jpg');
+(5, 'Gulaku', 80, '2d0b076a-2ab6-4c7f-928e-fa35a2fbc128.jpg'),
+(6, 'Lemon', 282, 'lemon_segar.jpeg'),
+(7, 'Sabun', 71, 'Face_Scrub.jpg'),
+(8, 'Sulfur', 170, 'Body_Scrub_Lemon.jpeg'),
+(9, 'Jeruk Nipis', 138, 'lemon.jpg'),
+(14, 'PET Bottle', 5, '902104_s00022.jpg');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,10 @@ INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `no_transaksi`, `id_bahan
 (20, 'T-RLP-1658128417', 6, 1),
 (21, 'T-RLP-1658128417', 7, 1),
 (22, 'T-RLP-1658128417', 8, 1),
-(23, 'T-RLP-1658128417', 9, 69);
+(23, 'T-RLP-1658128417', 9, 69),
+(24, 'T-RLP-1658231889', 5, 10),
+(25, 'T-RLP-1658231889', 6, 12),
+(26, 'T-RLP-1658231889', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +120,8 @@ CREATE TABLE `supplier` (
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `no_telp`) VALUES
 (2, 'Bonbon', 'Jl. Sutomo', '0916262'),
-(3, 'Fanny', 'Rowosari', 'xxxxxxxxxxxxxxxx');
+(3, 'Fanny', 'Rowosari', 'xxxxxxxxxxxxxxxx'),
+(7, 'Isam', 'Jalan Citayem', '0812xxxx');
 
 -- --------------------------------------------------------
 
@@ -142,13 +147,14 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id_transaksi`, `no_transaksi`, `id_karyawan`, `id_supplier`, `tanggal`, `bukti_transaksi`, `keterangan`, `status_transaksi`) VALUES
 (2, 'T-RLP-1657899654', 2, 2, '15/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a0447.png', 'Yo', 'Selesai'),
 (3, 'T-RLP-1657945825', 4, 2, '16/07/2022', 'lemonv2.jpg', 'asdasd', 'Selesai'),
-(4, 'T-RLP-1657947747', 4, 2, '16/07/2022', 'Xiao_(Genshin_Impact)_full_3209324.jpg', 'bismillah', 'Sudah mengambil bahan'),
-(6, 'T-RLP-1657947793', 2, 2, '16/07/2022', 'lemon.jpg', 'slebew', 'Sedang mengambil bahan'),
-(7, 'T-RLP-1657965565', 4, 2, '16/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '-', 'Menunggu Karyawan'),
-(8, 'T-RLP-1657965755', 2, 3, '16/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'qdsdadsfasasfasda4tfas', 'Menunggu Karyawan'),
-(9, 'T-RLP-1658120652', 2, 2, '18/07/2022', '', '', 'Menunggu Karyawan'),
-(10, 'T-RLP-1658127934', 2, 2, '18/07/2022', '', '', 'Menunggu Karyawan'),
-(11, 'T-RLP-1658128417', 4, 2, '18/07/2022', '', 'Lunas.', 'Menunggu Karyawan');
+(4, 'T-RLP-1657947747', 4, 2, '16/07/2022', 'Xiao_(Genshin_Impact)_full_3209324.jpg', 'bismillah', 'Selesai'),
+(6, 'T-RLP-1657947793', 2, 2, '16/07/2022', 'lemon.jpg', 'slebew', 'Selesai'),
+(7, 'T-RLP-1657965565', 4, 2, '16/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '-', 'Selesai'),
+(8, 'T-RLP-1657965755', 4, 3, '16/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'qdsdadsfasasfasda4tfas', 'Selesai'),
+(9, 'T-RLP-1658120652', 2, 2, '18/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '', 'Selesai'),
+(10, 'T-RLP-1658127934', 4, 2, '18/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', 'Jangan lupa ini itu', 'Selesai'),
+(11, 'T-RLP-1658128417', 8, 2, '18/07/2022', '9cdee7272495a769e52ea9443488f1a011.jpg', 'Lunas.', 'Selesai'),
+(12, 'T-RLP-1658231889', 2, 2, '19/07/2022', '1637c5f1-7a8f-4d0a-a783-4ca7d38a04471.png', '', 'Sedang mengambil bahan');
 
 -- --------------------------------------------------------
 
@@ -169,9 +175,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `role`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$10$Ax8sglkrMO7w.emB2dJ2ieF7LDxdyehwlV/HuEdh0jW/67kyhsooq', 'Admin'),
-(2, 'Anton', 'anto@gmail.com', '$2y$10$BQmHCWXXg3sSN.TnqSDeaORqqtzkoIMB3.essTLNlgacu2mT8L0fC', 'Karyawan'),
-(4, 'Aldi', 'adli@gmail.com', '$2y$10$QPiJa01JXe5YE1XFbWplgeEbk.nHVS3tth.A27Q8nmf0x.NLZPWTm', 'Karyawan');
+(1, 'Admin', 'admin@gmail.com', '$2y$10$ezAGL8e/ovBqJo3Hzxh3p.chuHf4YyRzuv214CzKtTeHdEKfob5VO', 'Admin'),
+(2, 'Anton', 'anto@gmail.com', '$2y$10$2VOmevh65iFvkvsmyyi.m.ZZ1AIZfSaZamfp0Tu5.730fTXpNaB4y', 'Karyawan'),
+(4, 'Aldi', 'adli@gmail.com', '$2y$10$QPiJa01JXe5YE1XFbWplgeEbk.nHVS3tth.A27Q8nmf0x.NLZPWTm', 'Karyawan'),
+(8, 'Harle', 'harle@gmail.com', '$2y$10$wMLeo1v87sKJj3UhceKLUe1G9Z.HBalSOxTem8cGyZDmVe.zRNave', 'Karyawan');
 
 --
 -- Indexes for dumped tables
@@ -226,37 +233,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
