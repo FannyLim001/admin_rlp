@@ -62,15 +62,15 @@
                                                     <td>
                                                         <?php if ($b['stok_bahan'] > 20) { ?>
                                                             <!-- Stok ada -->
-                                                            <button type="button" class="btn btn-success btn-min-width w-75 mr-1 mb-1">Stok Ada</button>
+                                                            <button type="button" class="btn btn-bg-gradient-x-purple-blue btn-min-width w-75 mr-1 mb-1">Stok Ada</button>
                                                         <?php
                                                         } else if ($b['stok_bahan'] > 0) { ?>
                                                             <!-- Stok Sisa Sedikit -->
-                                                            <button type="button" class="btn btn-warning btn-min-width w-75 mr-1 mb-1">Stok Sisa Sedikit</button>
+                                                            <button type="button" class="btn btn-bg-gradient-x-orange-yellow btn-min-width w-75 mr-1 mb-1">Stok Sisa Sedikit</button>
                                                         <?php
                                                         } else { ?>
                                                             <!-- Habis -->
-                                                            <button type="button" class="btn btn-danger btn-min-width w-75 mr-1 mb-1">Habis</button>
+                                                            <button type="button" class="btn btn-bg-gradient-x-red-pink btn-min-width w-75 mr-1 mb-1">Habis</button>
                                                         <?php
                                                         } ?>
                                                     </td>

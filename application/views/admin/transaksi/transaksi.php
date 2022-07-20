@@ -66,16 +66,16 @@
                                                     <td><?= $t['tanggal'] ?></td>
                                                     <td>
                                                         <?php if ($t['status_transaksi'] == 'Selesai') { ?>
-                                                            <button type="button" class="btn btn-success btn-min-width w-75 mr-1 mb-1">Selesai</button>
+                                                            <button type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-min-width w-75 mr-1 mb-1"><strong>Selesai</strong></button>
                                                         <?php
-                                                        } else if ($t['status_transaksi'] == 'Sedang menunggu karyawan') { ?>
-                                                            <button type="button" class="btn btn-warning btn-min-width w-75 mr-1 mb-1">Sedang Menunggu Karyawan</button>
+                                                        } else if ($t['status_transaksi'] == 'Sudah mengambil bahan') { ?>
+                                                            <button type="button" class="btn btn-bg-gradient-x-orange-yellow btn-min-width w-75 mr-1 mb-1">Bahan Sudah<br>Diambil</button>
                                                         <?php
                                                         } else if ($t['status_transaksi'] == 'Sedang mengambil bahan') { ?>
-                                                            <button type="button" class="btn btn-primary btn-min-width w-75 mr-1 mb-1">Sedang Mengambil <br>Bahan</button>
+                                                            <button type="button" class="btn btn-bg-gradient-x-blue-cyan btn-min-width w-75 mr-1 mb-1">Sedang Mengambil <br>Bahan</button>
                                                         <?php
                                                         } else { ?>
-                                                            <button type="button" class="btn btn-danger btn-min-width w-75 mr-1 mb-1">Menunggu Karyawan</button>
+                                                            <button type="button" class="btn btn-bg-gradient-x-red-pink btn-min-width w-75 mr-1 mb-1">Menunggu <br>Karyawan</button>
                                                         <?php
                                                         } ?>
                                                     </td>

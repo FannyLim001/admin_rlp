@@ -23,7 +23,7 @@
             <!-- Basic Tables start -->
             <div class="row">
                 <div class="col-12">
-                <div class="card">
+                    <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Tabel <?= $title ?></h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
@@ -53,22 +53,36 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
+                                            <?php
                                             $i = 1;
                                             foreach ($transaksi as $t) {
-                                        ?>
-                                            <tr>
-                                                <th scope="row"><?= $i ?></th>
-                                                <td><?= $t['no_transaksi'] ?></td>
-                                                <td><?= $t['tanggal'] ?></td>
-                                                <td><?= $t['nama_karyawan'] ?></td>
-                                                <td><?= $t['nama_supplier'] ?> - <?= $t['alamat_supplier'] ?></td>
-                                                <td><?= $t['tanggal'] ?></td>
-                                                <td><?= $t['status_transaksi'] ?></td>
-                                                <td><a href="<?= site_url('pekerja/detail_transaksi/') . $t['no_transaksi']; ?>" class="btn btn-info"><i class="la la-info-circle"></i></a>
-                                            </tr>
+                                            ?>
+                                                <tr>
+                                                    <th scope="row"><?= $i ?></th>
+                                                    <td><?= $t['no_transaksi'] ?></td>
+                                                    <td><?= $t['tanggal'] ?></td>
+                                                    <td><?= $t['nama_karyawan'] ?></td>
+                                                    <td><?= $t['nama_supplier'] ?> - <?= $t['alamat_supplier'] ?></td>
+                                                    <td><?= $t['tanggal'] ?></td>
+                                                    <td>
+                                                        <?php if ($t['status_transaksi'] == 'Selesai') { ?>
+                                                            <button type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-min-width w-75 mr-1 mb-1"><strong>Selesai</strong></button>
+                                                        <?php
+                                                        } else if ($t['status_transaksi'] == 'Sudah mengambil bahan') { ?>
+                                                            <button type="button" class="btn btn-bg-gradient-x-orange-yellow btn-min-width w-75 mr-1 mb-1">Bahan Sudah<br>Diambil</button>
+                                                        <?php
+                                                        } else if ($t['status_transaksi'] == 'Sedang mengambil bahan') { ?>
+                                                            <button type="button" class="btn btn-bg-gradient-x-blue-cyan btn-min-width w-75 mr-1 mb-1">Sedang Mengambil <br>Bahan</button>
+                                                        <?php
+                                                        } else { ?>
+                                                            <button type="button" class="btn btn-bg-gradient-x-red-pink btn-min-width w-75 mr-1 mb-1">Menunggu <br>Karyawan</button>
+                                                        <?php
+                                                        } ?>
+                                                    </td>
+                                                    <td><a href="<?= site_url('pekerja/detail_transaksi/') . $t['no_transaksi']; ?>" class="btn btn-info"><i class="la la-info-circle"></i></a>
+                                                </tr>
                                             <?php $i++;
-                                        } ?>
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -78,7 +92,7 @@
                 </div>
             </div>
             <!-- Basic Tables end -->
-            </div>
         </div>
     </div>
+</div>
 </div>
